@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-from __future__ import print_function
 import sys,os
 import numpy as np
 import matplotlib
@@ -14,20 +13,16 @@ FONT_SIZE = 18
 sns.set_color_codes()
 seaborn.set()
 
-#plt.rc('text', usetex=True)
+plt.rc('text', usetex=True)
 font = {'family' : 'normal',
         'weight' : 'bold',
         'size'   : FONT_SIZE}
 plt.rc('font', **font)
-#plt.rcParams['text.latex.preamble'] = [r'\boldmath']
+plt.rcParams['text.latex.preamble'] = [r'\boldmath']
 
-LEGEND_FONT_SIZE = 10
-XTICK_LABEL_SIZE = 10
-YTICK_LABEL_SIZE = 10
-
-#LEGEND_FONT_SIZE = 14
-#XTICK_LABEL_SIZE = 14
-#YTICK_LABEL_SIZE = 14
+LEGEND_FONT_SIZE = 14
+XTICK_LABEL_SIZE = 14
+YTICK_LABEL_SIZE = 14
 
 plt.rcParams["axes.labelweight"] = "bold"
 plt.rcParams["font.weight"] = "bold"
