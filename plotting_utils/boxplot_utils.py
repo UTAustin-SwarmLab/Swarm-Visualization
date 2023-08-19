@@ -13,6 +13,8 @@ from scipy.ndimage.interpolation import shift
 
 from numpy import linalg as LA
 
+from .general_utils import set_axis_infos
+
 
 """
 paired boxplot, hue is a name of a column that controls what to pair by
@@ -49,17 +51,9 @@ def plot_paired_boxplot(df = None, x_var = None, y_var = None, plot_file = None,
         else:
             sns.boxplot(x=x_var, y=y_var, data=df, order = order_list, palette = pal, hue = hue, ax = ax)
 
-
-    # Sets y-axis limits
-    if ylim:
-        ax.set_ylim(ylim[0], ylim[1])
-    #sns.plt.tight_layout()
-    #sns.plt.savefig(plot_file)
-    #sns.plt.clf()
-
-    # Sets title
-    if title_str:
-        ax.set_title(title_str)
+    
+    # Set axis infos
+    set_axis_infos(ax, ylim = ylim, title = title_str)
 
 """
 no pairing
@@ -77,27 +71,19 @@ def plot_grouped_boxplot(df = None, x_var = None, y_var = None, plot_file = None
     :param pal: palette
     :return: None
     """
-    fig = plt.figure()
 
     if not pal:
         if order_list:
-            plot = sns.boxplot(x=x_var, y=y_var, data=df, order = order_list, ax = ax)
+            sns.boxplot(x=x_var, y=y_var, data=df, order = order_list, ax = ax)
         else:
-            plot = sns.boxplot(x=x_var, y=y_var, data=df, order = order_list, ax = ax)
+            sns.boxplot(x=x_var, y=y_var, data=df, order = order_list, ax = ax)
 
     if pal:
         if order_list:
-            plot = sns.boxplot(x=x_var, y=y_var, data=df, order = order_list, palette = pal, ax = ax)
+            sns.boxplot(x=x_var, y=y_var, data=df, order = order_list, palette = pal, ax = ax)
         else:
-            plot = sns.boxplot(x=x_var, y=y_var, data=df, order = order_list, palette = pal, ax = ax)
+            sns.boxplot(x=x_var, y=y_var, data=df, order = order_list, palette = pal, ax = ax)
 
-
-    if ylim:
-        plt.ylim(ylim[0], ylim[1])
-    #sns.plt.tight_layout()
-    #sns.plt.savefig(plot_file)
-    #sns.plt.clf()
-
-    if title_str:
-        plt.title(title_str)
+    # Set axis infos
+    set_axis_infos(ax, ylim = ylim, title = title_str)
 

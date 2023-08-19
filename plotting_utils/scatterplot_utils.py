@@ -68,7 +68,7 @@ def scatter_pdf_plot(ts_x = None, ts_y = None, title_str:str = None, ylabel:str 
 
     # Set labels
     fig.set_axis_labels(xlabel, ylabel)
-    
+
     # Set limits
     if xlim:
         plt.xlim(xlim)

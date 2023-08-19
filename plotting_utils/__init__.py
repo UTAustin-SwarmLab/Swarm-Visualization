@@ -1,6 +1,5 @@
 from plotting_utils.boxplot_utils import *
 from plotting_utils.histogram_utils import *
-from plotting_utils.jointplot_utils import *
 from plotting_utils.lineplot_utils import *
 from plotting_utils.legendplot_utils import *
 from plotting_utils.scatterplot_utils import *

@@ -12,9 +12,11 @@ from typing import Union, List, Dict, Tuple, Any, Optional
 import numpy as np
 from scipy.ndimage.interpolation import shift
 
+from .general_utils import set_axis_infos
+
 from numpy import linalg as LA
 
-def basic_plot_ts(ts_vector = None, title_str:str = None, plot_file:str = None, ylabel:str = None, lw:float =3.0, ylim = None, xlabel:str = 'time', ax = None) -> None:
+def basic_plot_ts(ts_vector = None, title_str:str = None, ylabel:str = None, lw:float =3.0, ylim = None, xlabel:str = 'time', ax = None) -> None:
     """
     Basic plot of a time series
     :param ts_vector: time series
@@ -28,18 +30,9 @@ def basic_plot_ts(ts_vector = None, title_str:str = None, plot_file:str = None, 
     """
 
     # Plot time series
-    plt.plot(ts_vector, lw=lw, ax = ax)
+    ax.plot(ts_vector, lw=lw)
 
-    # Set labels
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-
-    # Set limits
-    if ylim:
-        plt.ylim(ylim[0], ylim[1])
-
-    # Set title
-    plt.title(title_str)
+    set_axis_infos(ax, xlabel=xlabel,ylabel=ylabel, ylim = ylim, title = title_str)
 
 
 def overlaid_ts(normalized_ts_dict:Dict = None, title_str:str = None, plot_file:str = None, 
@@ -96,58 +89,49 @@ def overlaid_ts(normalized_ts_dict:Dict = None, title_str:str = None, plot_file:
             
             # Plot with markers if marker is specified 
             if 'marker' in ts_data_dict.keys():
-                plt.plot(ts_data_dict['xvec'], ts_data_dict['ts_vector'], ax= ax, lw= ts_data_dict['lw'], label = ts_name, marker = ts_data_dict['marker'], ls = ts_data_dict['linestyle'], alpha = alpha, ms = DEFAULT_MARKERSIZE, color = color, zorder= zorder)
+                ax.plot(ts_data_dict['xvec'], ts_data_dict['ts_vector'], lw= ts_data_dict['lw'], label = ts_name, marker = ts_data_dict['marker'], ls = ts_data_dict['linestyle'], alpha = alpha, ms = DEFAULT_MARKERSIZE, color = color, zorder= zorder)
             else:
-                plt.plot(ts_data_dict['xvec'], ts_data_dict['ts_vector'], ax= ax, lw= ts_data_dict['lw'], label = ts_name, ls = ts_data_dict['linestyle'], alpha = alpha, color = color, zorder=zorder)
+                ax.plot(ts_data_dict['xvec'], ts_data_dict['ts_vector'], lw= ts_data_dict['lw'], label = ts_name, ls = ts_data_dict['linestyle'], alpha = alpha, color = color, zorder=zorder)
         # Plot without x-axis if xvec is not specified
         else:
             if 'marker' in ts_data_dict.keys():
-                plt.plot(ts_data_dict['ts_vector'], lw= ts_data_dict['lw'], ax= ax, label = ts_name, marker = ts_data_dict['marker'], ls = ts_data_dict['linestyle'], alpha = alpha, ms = DEFAULT_MARKERSIZE, color = color, zorder=zorder)
+                ax.plot(ts_data_dict['ts_vector'], lw= ts_data_dict['lw'], label = ts_name, marker = ts_data_dict['marker'], ls = ts_data_dict['linestyle'], alpha = alpha, ms = DEFAULT_MARKERSIZE, color = color, zorder=zorder)
             else:
-                plt.plot(ts_data_dict['ts_vector'], lw= ts_data_dict['lw'], ax= ax, label = ts_name, ls = ts_data_dict['linestyle'], alpha = alpha, color = color, zorder=zorder)
-
-        #plt.hold(True)
+                ax.plot(ts_data_dict['ts_vector'], lw= ts_data_dict['lw'], label = ts_name, ls = ts_data_dict['linestyle'], alpha = alpha, color = color, zorder=zorder)
 
         i += 1
+
 
     # Set labels 
     if fontsize:
         if xlabel:
-            plt.xlabel(xlabel, fontsize=fontsize)
+            ax.set_xlabel(xlabel, fontsize=fontsize)
         if ylabel:
-            plt.ylabel(ylabel, fontsize=fontsize)
+            ax.set_ylabel(ylabel, fontsize=fontsize)
     else:
         if xlabel:
-            plt.xlabel(xlabel)
+            ax.set_xlabel(xlabel)
         if ylabel:
-            plt.ylabel(ylabel)
+            ax.set_ylabel(ylabel)
+
 
     # Set x-axis ticks
     if xticks:
-        plt.xticks(xticks)
+        ax.set_xticks(xticks)
 
     # Set y-axis limits
     if ylim:
-        plt.ylim(ylim)
+        ax.set_ylim(ylim[0], ylim[1])
 
     # Plot legend
     if legend_present:
         print('legend present!')
-        plt.legend(loc = 'best')
-
-
-        #if i % 2 == 0:
-        #    ncol = 2
-        #elif i % 3 == 0:
-        #    ncol = 3
-        #else:
-        #    ncol = 1
-        #plt.legend(loc='best', bbox_to_anchor = (0., 1.02, 1., .102), ncol = ncol, fontsize ='x-small')
+        ax.legend(loc = 'best')
 
     # Set title if not none
     if title_str is not None:
-        plt.title(title_str, fontsize=fontsize)
+        ax.set_title(title_str, fontsize=fontsize)
     
     # Delete y-axis ticks if specified
     if delete_yticks:
-        plt.yticks([])
+        ax.set_yticks([])
