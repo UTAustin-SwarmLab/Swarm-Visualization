@@ -18,7 +18,7 @@ import sys,os
 import copy
 
 import numpy as np
-from scipy.ndimage.interpolation import shift
+from scipy.ndimage import shift
 
 
 """

@@ -1,18 +1,7 @@
 import sys,os
 import numpy as np
-import matplotlib
-matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-import seaborn as sns
-import pandas as pd
-import matplotlib.pylab as pylab
 
-from typing import Union, List, Dict, Tuple, Any, Optional
-
-import numpy as np
-from scipy.ndimage.interpolation import shift
-
-from numpy import linalg as LA
 
 # Add path to plotting_utils
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -23,40 +12,6 @@ from plotting_utils import *
 # Example Plots location
 
 example_plot_folder_loc = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'example_plots'))
-
-
-FONT_SIZE = 20
-sns.set_color_codes()
-
-plt.rc('text', usetex=True)
-font = {'family' : 'normal',
-        'weight' : 'bold',
-        'size'   : FONT_SIZE}
-plt.rc('font', **font)
-plt.rcParams['text.latex.preamble'] = [r'\boldmath']
-
-LEGEND_FONT_SIZE = 14
-XTICK_LABEL_SIZE = 14
-YTICK_LABEL_SIZE = 14
-
-plt.rcParams["axes.labelweight"] = "bold"
-plt.rcParams["font.weight"] = "bold"
-#matplotlib.rcParams['text.latex.preamble']=[r"\usepackage{amsmath}"]
-
-
-import matplotlib.pylab as pylab
-params = {'legend.fontsize': LEGEND_FONT_SIZE,
-         'axes.labelsize': FONT_SIZE,
-         'axes.titlesize': FONT_SIZE,
-         'xtick.labelsize': XTICK_LABEL_SIZE,
-         'ytick.labelsize': YTICK_LABEL_SIZE,
-         'figure.autolayout': True}
-pylab.rcParams.update(params)
-plt.rcParams["axes.labelweight"] = "bold"
-
-# Time Series Data Generation For Testing
-
-
 
 # Function that tests basic scatterplot
 def test_basic_scatterplot(x_data,y_data) -> None:

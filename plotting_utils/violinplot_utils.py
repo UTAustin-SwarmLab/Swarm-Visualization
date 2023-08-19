@@ -1,18 +1,4 @@
-import sys,os
-import numpy as np
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
 import seaborn as sns
-import pandas as pd
-import matplotlib.pylab as pylab
-
-from typing import Union, List, Dict, Tuple, Any, Optional
-
-import numpy as np
-from scipy.ndimage.interpolation import shift
-
-from numpy import linalg as LA
 
 from .general_utils import set_axis_infos
 
@@ -26,6 +12,7 @@ def plot_grouped_violinplot(df = None, x_var = None, y_var = None, ylim = None, 
     :param title_str: title of the plot
     :param order_list: order of the x-axis variable
     :param pal: palette
+    :param ax: axis to plot on
     :return: None
     """
 

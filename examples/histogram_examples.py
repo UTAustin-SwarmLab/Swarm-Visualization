@@ -1,26 +1,13 @@
 import sys,os
 import numpy as np
-import matplotlib
-matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-import seaborn as sns
-import pandas as pd
-import matplotlib.pylab as pylab
-
-from typing import Union, List, Dict, Tuple, Any, Optional
-
-import numpy as np
-
-from numpy import linalg as LA
 
 # Add path to plotting_utils
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-# Import plotting utils
 from plotting_utils import *
 
 # Example Plots location
-
 example_plot_folder_loc = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'example_plots'))
 
 

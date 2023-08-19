@@ -1,31 +1,19 @@
-import sys,os
-import numpy as np
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
 import seaborn as sns
-import pandas as pd
-import matplotlib.pylab as pylab
-
-from typing import Union, List, Dict, Tuple, Any, Optional
-
-import numpy as np
-from scipy.ndimage.interpolation import shift
+from typing import Dict
 
 from .general_utils import set_axis_infos
 
-from numpy import linalg as LA
 
 def basic_plot_ts(ts_vector = None, title_str:str = None, ylabel:str = None, lw:float =3.0, ylim = None, xlabel:str = 'time', ax = None) -> None:
     """
     Basic plot of a time series
     :param ts_vector: time series
     :param title_str: title of the plot
-    :param plot_file: file to save the plot
     :param ylabel: y-axis label
     :param lw: line width
     :param ylim: y-axis limits
     :param xlabel: x-axis label
+    :param ax: axis to plot on
     :return: None
     """
 
@@ -35,7 +23,7 @@ def basic_plot_ts(ts_vector = None, title_str:str = None, ylabel:str = None, lw:
     set_axis_infos(ax, xlabel=xlabel,ylabel=ylabel, ylim = ylim, title = title_str)
 
 
-def overlaid_ts(normalized_ts_dict:Dict = None, title_str:str = None, plot_file:str = None, 
+def overlaid_ts(normalized_ts_dict:Dict = None, title_str:str = None, 
                 ylabel:str = None, xlabel:str = 'time', fontsize:float = 30, xticks = None, 
                 ylim = None, DEFAULT_ALPHA:float = 1.0, legend_present:bool = True, 
                 DEFAULT_MARKERSIZE:float = 15, delete_yticks:bool = False, ax = None) -> None:
@@ -43,7 +31,6 @@ def overlaid_ts(normalized_ts_dict:Dict = None, title_str:str = None, plot_file:
     Overlaid time series plot
     :param normalized_ts_dict: dictionary with time series to plot
     :param title_str: title of the plot
-    :param plot_file: file to save the plot
     :param ylabel: y-axis label
     :param xlabel: x-axis label
     :param fontsize: font size
@@ -53,6 +40,7 @@ def overlaid_ts(normalized_ts_dict:Dict = None, title_str:str = None, plot_file:
     :param legend_present: whether to plot the legend
     :param DEFAULT_MARKERSIZE: default marker size
     :param delete_yticks: whether to delete the y-axis ticks
+    :param ax: axis to plot on
     :return: None
     """
 

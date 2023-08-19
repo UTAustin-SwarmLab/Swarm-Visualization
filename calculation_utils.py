@@ -19,7 +19,7 @@ import pandas
 
 #np.random.seed(42)
 import numpy as np
-from scipy.ndimage.interpolation import shift
+from scipy.ndimage import shift
 
 from numpy import linalg as LA
 

@@ -1,18 +1,5 @@
-import sys,os
-import numpy as np
-import matplotlib
-matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import seaborn as sns
-import pandas as pd
-import matplotlib.pylab as pylab
-
-from typing import Union, List, Dict, Tuple, Any, Optional
-
-import numpy as np
-from scipy.ndimage.interpolation import shift
-
-from numpy import linalg as LA
 
 def basic_scatterplot(ts_x = None, ts_y = None, title_str:str = None, ylabel:str = None, lw:float=3.0, ylim = None, xlabel:str = 'time', xlim = None, ms:float =4.0, color:str = 'b', ax = None) -> None:
     """
@@ -20,7 +7,6 @@ def basic_scatterplot(ts_x = None, ts_y = None, title_str:str = None, ylabel:str
     :param ts_x: x-axis time series
     :param ts_y: y-axis time series
     :param title_str: title of the plot
-    :param plot_file: file to save the plot
     :param ylabel: y-axis label
     :param lw: line width
     :param ylim: y-axis limits
