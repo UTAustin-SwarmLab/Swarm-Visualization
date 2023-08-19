@@ -16,6 +16,19 @@ from scipy.ndimage.interpolation import shift
 from numpy import linalg as LA
 
 def save_fig(fig,save_loc:str = None, dpi:int = 600) -> None:
+    """
+    Save figure
+    :param fig: figure
+    :param save_loc: location to save the figure
+    :param dpi: dpi
+    :return: None
+    """
+
+    # If save location doesn't exist, create it
+    if not os.path.exists(os.path.dirname(save_loc)):
+        os.makedirs(os.path.dirname(save_loc))
+    
+    # Save the figure
     fig.savefig(save_loc, dpi = dpi)
     plt.close("all")
 

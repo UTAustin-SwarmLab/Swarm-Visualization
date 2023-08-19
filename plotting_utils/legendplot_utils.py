@@ -15,7 +15,7 @@ from scipy.ndimage.interpolation import shift
 from numpy import linalg as LA
 
 
-def create_seperate_legend(names: List[str] = None, colors: List = None, linestyles: List= None, linewidth: float = None, labels: List[str]= None,
+def create_seperate_legend(labels: List[str] = None, colors: List = None, linestyles: List= None, linewidth: float = None,
                            markers: List = None, markersize: float = 3, legend_size: List[float] = None, save_loc: str = 'legend.png', legend_n_col: int = 1,
                             legend_prop: Dict = None) -> None:
     
@@ -40,12 +40,8 @@ def create_seperate_legend(names: List[str] = None, colors: List = None, linesty
     gs = fig.add_gridspec(1, 1)
     ax00 = fig.add_subplot(gs[0])
 
-    markers =["P","o","s","D","^","v","X"]
-    #linestyles=["--","-","-.",":","--","-","-."]
-    linestyles = ["-.","-","--",":","-.","-","--",":", "-.", "-"]
-
     # Creates a dummy plot to create the legend
-    for i in range(len(names)):
+    for i in range(len(labels)):
         if markers:
             if linestyles:
                 sns.lineplot(x=[1],y=[2],color=colors[i],marker=markers[i],markersize=markersize,linestyle=linestyles[i],ax=ax00,linewidth=linewidth,label=labels[i])
