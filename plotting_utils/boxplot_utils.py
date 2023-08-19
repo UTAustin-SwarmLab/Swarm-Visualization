@@ -74,3 +74,4 @@ def plot_grouped_boxplot(df = None, x_var = None, y_var = None, ylim = None, tit
     # Set axis infos
     set_axis_infos(ax, ylim = ylim, title = title_str)
 
+# TODO: add a function that plots a stacked boxplot
