@@ -32,4 +32,4 @@ def plot_grouped_violinplot(df = None, x_var = None, y_var = None, ylim = None, 
             sns.violinplot(x=x_var, y=y_var, data=df, order = order_list, palette = pal, ax = ax)
 
     # Set axis infos
-    set_axis_infos(ax, ylim = ylim, title = title_str)
+    set_axis_infos(ax, ylim = ylim, title_str = title_str)

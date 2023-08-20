@@ -25,7 +25,7 @@ def plot_pdf(data_vector = None, xlabel:str = None, title_str:str = None, ax = N
     alpha=.4, edgecolor=(1, 1, 1, .4), ax = ax)
 
     # Set axis infos
-    set_axis_infos(ax, xlabel = xlabel, title = title_str)
+    set_axis_infos(ax, xlabel = xlabel, title_str = title_str)
 
 def plot_several_pdf(data_vector_list = None, xlabel:str = None, 
                       title_str:str = None, legend = None, 
@@ -53,5 +53,5 @@ def plot_several_pdf(data_vector_list = None, xlabel:str = None,
 
 
     # Set axis infos
-    set_axis_infos(ax, xlabel = xlabel, ylabel = ylabel, title = title_str, xlim = xlim, legend = legend)
+    set_axis_infos(ax, xlabel = xlabel, ylabel = ylabel, title_str = title_str, xlim = xlim, legend = legend)
 

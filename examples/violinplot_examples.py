@@ -50,7 +50,7 @@ if __name__ == '__main__':
     groups = np.concatenate([np.repeat('a',50),np.repeat('b',50),np.repeat('a',50),np.repeat('b',50)])
 
 
-    df = pd.DataFrame({'y': x_data, 'x_label': x_label, 'groups': groups})
+    df = pd.DataFrame({'y': x_data, '$x_{label}$': x_label, 'groups': groups})
 
     # Test grouped violinplot
-    test_grouped_violinplot(df,x_var='x_label',y_var='y',hue='groups')
+    test_grouped_violinplot(df,x_var='$x_{label}$', y_var='y', hue='groups')

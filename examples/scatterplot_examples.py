@@ -22,7 +22,6 @@ def test_basic_scatterplot(x_data,y_data) -> None:
     :return: None
     """
 
-
     fig, ax = plt.subplots(figsize=(10, 10))
 
     # Create a  basic scatter plot
@@ -40,7 +39,7 @@ def test_scatter_pdf_plot(x_data,y_data) -> None:
     :param y_data: y-axis data
     :return: None
     """
-    
+
     # Create a scatter plot with CDFs
     fig = scatter_pdf_plot(ts_x = x_data, ts_y = y_data, title_str = 'Scatter Plot with CDFs', ylabel = 'y', lw = 3.0, ylim = None, xlabel = 'x', xlim = None)
 
