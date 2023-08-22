@@ -18,9 +18,11 @@ def save_fig(fig,save_loc:str = None, dpi:int = 600) -> None:
     fig.savefig(save_loc, dpi = dpi)
     plt.close("all")
 
-def set_axis_infos(ax, xlabel:str = None, ylabel:int = None, xlim = None, 
-                   ylim = None, legend = None, title:str = None, xticks = None,
-                   yticks = None) -> None:
+def set_axis_infos(ax, xlabel:str = None, ylabel:str = None, xlim = None, 
+                   ylim = None, legend = None, title_str:str = None, xticks = None,
+                   yticks = None, xlabel_size:int = 20, ylabel_size:int = 20, 
+                   title_size:int =26, ticks_size:int = 18, legend_size:int = 20, 
+                   legend_loc:str = 'best') -> None:
     """
     Set axis information
     :param ax: axis
@@ -29,13 +31,26 @@ def set_axis_infos(ax, xlabel:str = None, ylabel:int = None, xlim = None,
     :param xlim: x-axis limits
     :param ylim: y-axis limits
     :param legend: legend
-    :param title: title
+    :param title_str: title
+    :param xticks: x-axis ticks
+    :param yticks: y-axis ticks
+    :param xlabel_size: x-axis label size
+    :param ylabel_size: y-axis label size
+    :param title_size: title size
+    :param ticks_size: ticks size
+    :param legend_size: legend size
+    :param legend_loc: legend location
     :return: None
     """
+
     if xlabel:
         ax.set_xlabel(xlabel)
+    if xlabel_size:
+        ax.xaxis.label.set_size(xlabel_size)
     if ylabel:
         ax.set_ylabel(ylabel)
+    if ylabel_size:
+        ax.yaxis.label.set_size(ylabel_size)
     if xlim:
         ax.set_xlim(xlim[0], xlim[1])
     if ylim:
@@ -44,7 +59,9 @@ def set_axis_infos(ax, xlabel:str = None, ylabel:int = None, xlim = None,
         ax.set_xticks(xticks)
     if yticks:
         ax.set_yticks(yticks)
+    if ticks_size:
+        ax.tick_params(axis='both', which='major', labelsize=ticks_size)
     if legend:
-        ax.legend(legend)
-    if title:
-        ax.set_title(title)
+        ax.legend(legend, fontsize=legend_size, loc=legend_loc)
+    if title_str:
+        ax.set_title(title_str, fontsize=title_size)

@@ -23,7 +23,8 @@ font = {'family' : 'normal',
         'weight' : 'bold',
         'size'   : FONT_SIZE}
 plt.rc('font', **font)
-plt.rcParams['text.latex.preamble'] = [r'\boldmath']
+plt.rc('text', usetex=True)
+plt.rcParams['text.latex.preamble'] = r"\usepackage{bm} \usepackage{amsmath}"
 
 LEGEND_FONT_SIZE = 14
 XTICK_LABEL_SIZE = 14

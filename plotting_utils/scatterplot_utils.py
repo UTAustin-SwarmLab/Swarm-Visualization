@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
+from .general_utils import set_axis_infos
 
 def basic_scatterplot(ts_x = None, ts_y = None, title_str:str = None, ylabel:str = None, lw:float=3.0, ylim = None, xlabel:str = 'time', xlim = None, ms:float =4.0, color:str = 'b', ax = None) -> None:
     """
@@ -31,8 +32,8 @@ def basic_scatterplot(ts_x = None, ts_y = None, title_str:str = None, ylabel:str
     if ylim:
         ax.set_ylim(ylim)
 
-    # Set title
-    ax.set_title(title_str)
+    # Set axis infos
+    set_axis_infos(ax, ylim = ylim, title_str = title_str)
 
 # joint plot: scatterplot with the CDFs
 def scatter_pdf_plot(ts_x = None, ts_y = None, title_str:str = None, ylabel:str = None, lw:float=3.0, ylim = None, xlabel:str = 'time', xlim = None):
@@ -50,7 +51,7 @@ def scatter_pdf_plot(ts_x = None, ts_y = None, title_str:str = None, ylabel:str 
     """
 
     # Joint plot
-    fig = sns.jointplot(x = ts_x, y = ts_y,)
+    fig = sns.jointplot(x = ts_x, y = ts_y)
 
     # Set labels
     fig.set_axis_labels(xlabel, ylabel)

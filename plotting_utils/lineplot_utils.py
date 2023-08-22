@@ -20,7 +20,7 @@ def basic_plot_ts(ts_vector = None, title_str:str = None, ylabel:str = None, lw:
     # Plot time series
     ax.plot(ts_vector, lw=lw)
 
-    set_axis_infos(ax, xlabel=xlabel,ylabel=ylabel, ylim = ylim, title = title_str)
+    set_axis_infos(ax, xlabel=xlabel,ylabel=ylabel, ylim = ylim, title_str = title_str)
 
 
 def overlaid_ts(normalized_ts_dict:Dict = None, title_str:str = None, 
@@ -113,7 +113,6 @@ def overlaid_ts(normalized_ts_dict:Dict = None, title_str:str = None,
 
     # Plot legend
     if legend_present:
-        print('legend present!')
         ax.legend(loc = 'best')
 
     # Set title if not none
