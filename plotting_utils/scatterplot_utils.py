@@ -63,6 +63,6 @@ def scatter_pdf_plot(ts_x = None, ts_y = None, title_str:str = None, ylabel:str 
         plt.ylim(ylim)
 
     # Set title
-    fig.fig.suptitle(title_str)
+    fig.fig.suptitle(title_str, fontsize=20, va='top', y=1.03)
 
     return fig
