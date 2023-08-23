@@ -78,3 +78,40 @@ def plot_several_pdf(
     set_axis_infos(
         ax, xlabel=xlabel, ylabel=ylabel, title_str=title_str, xlim=xlim, legend=legend
     )
+
+
+def plot_stacked_histogram(
+    df=None,
+    x_var=None,
+    y_var=None,
+    ylim=None,
+    title_str=None,
+    pal=None,
+    ax=None,
+    y_label=None,
+) -> None:
+    """
+    Plots a grouped boxplot
+    :param df: dataframe
+    :param x_var: x-axis variable
+    :param y_var: y-axis variable
+    :param ylim: y-axis limits
+    :param title_str: title of the plot
+    :param pal: palette
+    :param ax: axis to plot on
+    :return: None
+    """
+
+    if not pal:
+        df.plot(kind="bar", stacked=True, ax=ax, x=x_var, y=y_var)
+
+    if pal:
+        colors = [pal(i) for i in range(len(x_var))]
+        df.plot(kind="bar", stacked=True, ax=ax, x=x_var, y=y_var, colors=colors)
+
+    ### set y label
+    if y_label:
+        ax.set_ylabel(y_label)
+
+    # Set axis infos
+    set_axis_infos(ax, ylim=ylim, title_str=title_str)
