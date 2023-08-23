@@ -1,7 +1,8 @@
 import os
 import matplotlib.pyplot as plt
 
-def save_fig(fig,save_loc:str = None, dpi:int = 600) -> None:
+
+def save_fig(fig, save_loc: str = None, dpi: int = 600) -> None:
     """
     Save figure
     :param fig: figure
@@ -13,14 +14,23 @@ def save_fig(fig,save_loc:str = None, dpi:int = 600) -> None:
     # If save location doesn't exist, create it
     if not os.path.exists(os.path.dirname(save_loc)):
         os.makedirs(os.path.dirname(save_loc))
-    
+
     # Save the figure
-    fig.savefig(save_loc, dpi = dpi)
+    fig.savefig(save_loc, dpi=dpi)
     plt.close("all")
 
-def set_axis_infos(ax, xlabel:str = None, ylabel:int = None, xlim = None, 
-                   ylim = None, legend = None, title:str = None, xticks = None,
-                   yticks = None) -> None:
+
+def set_axis_infos(
+    ax,
+    xlabel: str = None,
+    ylabel: int = None,
+    xlim=None,
+    ylim=None,
+    legend=None,
+    title: str = None,
+    xticks=None,
+    yticks=None,
+) -> None:
     """
     Set axis information
     :param ax: axis

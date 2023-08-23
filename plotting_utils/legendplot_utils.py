@@ -5,10 +5,18 @@ import matplotlib.pylab as pylab
 from typing import List, Dict
 
 
-def create_seperate_legend(labels: List[str] = None, colors: List = None, linestyles: List= None, linewidth: float = None,
-                           markers: List = None, markersize: float = 3, legend_size: List[float] = None, save_loc: str = 'legend.png', legend_n_col: int = 1,
-                            legend_prop: Dict = None) -> None:
-    
+def create_seperate_legend(
+    labels: List[str] = None,
+    colors: List = None,
+    linestyles: List = None,
+    linewidth: float = None,
+    markers: List = None,
+    markersize: float = 3,
+    legend_size: List[float] = None,
+    save_loc: str = "legend.png",
+    legend_n_col: int = 1,
+    legend_prop: Dict = None,
+) -> None:
     """
     Creates a seperate legend
     :param names: names of the time series
@@ -34,18 +42,52 @@ def create_seperate_legend(labels: List[str] = None, colors: List = None, linest
     for i in range(len(labels)):
         if markers:
             if linestyles:
-                sns.lineplot(x=[1],y=[2],color=colors[i],marker=markers[i],markersize=markersize,linestyle=linestyles[i],ax=ax00,linewidth=linewidth,label=labels[i])
+                sns.lineplot(
+                    x=[1],
+                    y=[2],
+                    color=colors[i],
+                    marker=markers[i],
+                    markersize=markersize,
+                    linestyle=linestyles[i],
+                    ax=ax00,
+                    linewidth=linewidth,
+                    label=labels[i],
+                )
             else:
-                sns.lineplot(x=[1],y=[2],color=colors[i],marker=markers[i],markersize=markersize,ax=ax00,linewidth=linewidth,label=labels[i])
+                sns.lineplot(
+                    x=[1],
+                    y=[2],
+                    color=colors[i],
+                    marker=markers[i],
+                    markersize=markersize,
+                    ax=ax00,
+                    linewidth=linewidth,
+                    label=labels[i],
+                )
         else:
             if linestyles:
-                sns.lineplot(x=[1],y=[2],color=colors[i],linestyle=linestyles[i],ax=ax00,linewidth=linewidth,label=labels[i])
+                sns.lineplot(
+                    x=[1],
+                    y=[2],
+                    color=colors[i],
+                    linestyle=linestyles[i],
+                    ax=ax00,
+                    linewidth=linewidth,
+                    label=labels[i],
+                )
             else:
-                sns.lineplot(x=[1],y=[2],color=colors[i],ax=ax00,linewidth=linewidth,label=labels[i])
+                sns.lineplot(
+                    x=[1],
+                    y=[2],
+                    color=colors[i],
+                    ax=ax00,
+                    linewidth=linewidth,
+                    label=labels[i],
+                )
 
     # Sets legend figure size
     figLegend = pylab.figure(figsize=(legend_size[0], legend_size[1]))
-    
+
     # Creates legend
     if legend_prop:
         pylab.figlegend(

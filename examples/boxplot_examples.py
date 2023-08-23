@@ -1,18 +1,20 @@
-import sys,os
+import sys, os
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
 # Add path to plotting_utils
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from plotting_utils import *
 
 # Example Plots location
-example_plot_folder_loc = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'example_plots'))
+example_plot_folder_loc = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", "example_plots")
+)
 
 
-def test_paired_boxplot(df,x_var,y_var,hue) -> None:
+def test_paired_boxplot(df, x_var, y_var, hue) -> None:
     """
     Tests paired boxplot
     :param df: dataframe
@@ -23,13 +25,16 @@ def test_paired_boxplot(df,x_var,y_var,hue) -> None:
 
     fig, ax = plt.subplots(figsize=(10, 10))
     # Create a paired boxplot
-    plot_paired_boxplot(df = df, x_var = x_var, y_var = y_var,hue=hue, title_str = 'Paired Boxplot', ax = ax)
+    plot_paired_boxplot(
+        df=df, x_var=x_var, y_var=y_var, hue=hue, title_str="Paired Boxplot", ax=ax
+    )
 
     # Save the plot
-    save_loc = os.path.join(example_plot_folder_loc,"boxplots", 'paired_boxplot.png')
-    save_fig(fig,save_loc,dpi = 600)
+    save_loc = os.path.join(example_plot_folder_loc, "boxplots", "paired_boxplot.png")
+    save_fig(fig, save_loc, dpi=600)
 
-def test_grouped_boxplot(df,x_var,y_var) -> None:
+
+def test_grouped_boxplot(df, x_var, y_var) -> None:
     """
     Tests grouped boxplot
     :param df: dataframe
@@ -41,15 +46,16 @@ def test_grouped_boxplot(df,x_var,y_var) -> None:
 
     fig, ax = plt.subplots(figsize=(10, 10))
     # Create a grouped boxplot
-    plot_grouped_boxplot(df = df, x_var = x_var, y_var = y_var, title_str = 'Grouped Boxplot', ax = ax)
+    plot_grouped_boxplot(
+        df=df, x_var=x_var, y_var=y_var, title_str="Grouped Boxplot", ax=ax
+    )
 
     # Save the plot
-    save_loc = os.path.join(example_plot_folder_loc,"boxplots", 'grouped_boxplot.png')
-    save_fig(fig,save_loc,dpi = 600)
+    save_loc = os.path.join(example_plot_folder_loc, "boxplots", "grouped_boxplot.png")
+    save_fig(fig, save_loc, dpi=600)
 
 
-if __name__ == '__main__':
-
+if __name__ == "__main__":
     # Set seed for reproducibility
     np.random.seed(0)
 
@@ -59,17 +65,19 @@ if __name__ == '__main__':
 
     # Concatenate the data
     x_data = np.concatenate([x1_data, x2_data])
-    x_label = np.concatenate([np.repeat('x1',100),np.repeat('x2',100)])
+    x_label = np.concatenate([np.repeat("$x_1$", 100), np.repeat("$x_2$", 100)])
 
     # Additional Groupings in each x with groups of 50 as group a and group b
-    groups = np.concatenate([np.repeat('a',50),np.repeat('b',50),np.repeat('a',50),np.repeat('b',50)])
+    groups = np.concatenate(
+        [np.repeat("a", 50), np.repeat("b", 50), np.repeat("a", 50), np.repeat("b", 50)]
+    )
 
+    df = pd.DataFrame({"$y$": x_data, "$x$": x_label, "Groups": groups})
 
-    df = pd.DataFrame({'y': x_data, 'x_label': x_label, 'groups': groups})
+    set_plot_properties()
 
     # Test paired boxplot
-    test_paired_boxplot(df = df, x_var = 'x_label', y_var = 'y',hue = 'groups')
+    test_paired_boxplot(df=df, x_var="$x$", y_var="$y$", hue="Groups")
 
     # Test grouped boxplot
-    test_grouped_boxplot(df = df, x_var = 'x_label', y_var = 'y')
-
+    test_grouped_boxplot(df=df, x_var="$x$", y_var="$y$")

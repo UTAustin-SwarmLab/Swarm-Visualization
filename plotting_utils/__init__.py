@@ -6,3 +6,4 @@ from plotting_utils.scatterplot_utils import *
 from plotting_utils.violinplot_utils import *
 from plotting_utils.gridplot_utils import *
 from plotting_utils.general_utils import *
+from plotting_utils.set_plot_properties import *

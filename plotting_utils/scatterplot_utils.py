@@ -1,7 +1,20 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-def basic_scatterplot(ts_x = None, ts_y = None, title_str:str = None, ylabel:str = None, lw:float=3.0, ylim = None, xlabel:str = 'time', xlim = None, ms:float =4.0, color:str = 'b', ax = None) -> None:
+
+def basic_scatterplot(
+    ts_x=None,
+    ts_y=None,
+    title_str: str = None,
+    ylabel: str = None,
+    lw: float = 3.0,
+    ylim=None,
+    xlabel: str = "time",
+    xlim=None,
+    ms: float = 4.0,
+    color: str = "b",
+    ax=None,
+) -> None:
     """
     Basic scatter plot
     :param ts_x: x-axis time series
@@ -19,7 +32,7 @@ def basic_scatterplot(ts_x = None, ts_y = None, title_str:str = None, ylabel:str
     """
 
     # Scatter plot
-    ax.scatter(ts_x, ts_y, lw=lw, s = ms, color = color)
+    ax.scatter(ts_x, ts_y, lw=lw, s=ms, color=color)
 
     # Set labels
     ax.set_xlabel(xlabel)
@@ -34,8 +47,18 @@ def basic_scatterplot(ts_x = None, ts_y = None, title_str:str = None, ylabel:str
     # Set title
     ax.set_title(title_str)
 
+
 # joint plot: scatterplot with the CDFs
-def scatter_pdf_plot(ts_x = None, ts_y = None, title_str:str = None, ylabel:str = None, lw:float=3.0, ylim = None, xlabel:str = 'time', xlim = None):
+def scatter_pdf_plot(
+    ts_x=None,
+    ts_y=None,
+    title_str: str = None,
+    ylabel: str = None,
+    lw: float = 3.0,
+    ylim=None,
+    xlabel: str = "time",
+    xlim=None,
+):
     """
     Scatter plot with the CDFs and saves the plot
     :param ts_x: x-axis time series
@@ -50,7 +73,10 @@ def scatter_pdf_plot(ts_x = None, ts_y = None, title_str:str = None, ylabel:str 
     """
 
     # Joint plot
-    fig = sns.jointplot(x = ts_x, y = ts_y,)
+    fig = sns.jointplot(
+        x=ts_x,
+        y=ts_y,
+    )
 
     # Set labels
     fig.set_axis_labels(xlabel, ylabel)

@@ -4,7 +4,9 @@ import seaborn as sns
 from .general_utils import set_axis_infos
 
 
-def plot_pdf(data_vector = None, xlabel:str = None, title_str:str = None, ax = None) -> None:
+def plot_pdf(
+    data_vector=None, xlabel: str = None, title_str: str = None, ax=None
+) -> None:
     """
     Plot PDF of a data vector
     :param data_vector: data vector
@@ -21,16 +23,30 @@ def plot_pdf(data_vector = None, xlabel:str = None, title_str:str = None, ax = N
     clean_data = np_data[~np.isnan(np_data)]
 
     # Plot histogram with density
-    sns.histplot(clean_data,kde=True,stat="density",kde_kws=dict(cut=3),
-    alpha=.4, edgecolor=(1, 1, 1, .4), ax = ax)
+    sns.histplot(
+        clean_data,
+        kde=True,
+        stat="density",
+        kde_kws=dict(cut=3),
+        alpha=0.4,
+        edgecolor=(1, 1, 1, 0.4),
+        ax=ax,
+    )
 
     # Set axis infos
-    set_axis_infos(ax, xlabel = xlabel, title = title_str)
+    set_axis_infos(ax, xlabel=xlabel, title=title_str)
 
-def plot_several_pdf(data_vector_list = None, xlabel:str = None, 
-                      title_str:str = None, legend = None, 
-                      ylabel:str = None, xlim=None, 
-                      kde:bool =False, ax = None) -> None:
+
+def plot_several_pdf(
+    data_vector_list=None,
+    xlabel: str = None,
+    title_str: str = None,
+    legend=None,
+    ylabel: str = None,
+    xlim=None,
+    kde: bool = False,
+    ax=None,
+) -> None:
     """
     Plot PDF of a data vector
     :param data_vector: data vector
@@ -45,13 +61,20 @@ def plot_several_pdf(data_vector_list = None, xlabel:str = None,
     """
 
     for i, data_vector in enumerate(data_vector_list):
-        #sns.distplot(data_vector, norm_hist = norm, kde=kde)
-        sns.histplot(data_vector, kde=kde,stat="density",kde_kws=dict(cut=3),
-    alpha=.4, edgecolor=(1, 1, 1, .4), ax = ax)
-        #sns.histplot(data_vector, norm_hist = norm)
-        #plt.hold(True)
-
+        # sns.distplot(data_vector, norm_hist = norm, kde=kde)
+        sns.histplot(
+            data_vector,
+            kde=kde,
+            stat="density",
+            kde_kws=dict(cut=3),
+            alpha=0.4,
+            edgecolor=(1, 1, 1, 0.4),
+            ax=ax,
+        )
+        # sns.histplot(data_vector, norm_hist = norm)
+        # plt.hold(True)
 
     # Set axis infos
-    set_axis_infos(ax, xlabel = xlabel, ylabel = ylabel, title = title_str, xlim = xlim, legend = legend)
-
+    set_axis_infos(
+        ax, xlabel=xlabel, ylabel=ylabel, title=title_str, xlim=xlim, legend=legend
+    )
