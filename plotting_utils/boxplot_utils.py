@@ -96,7 +96,41 @@ def plot_grouped_boxplot(
             sns.boxplot(x=x_var, y=y_var, data=df, order=order_list, palette=pal, ax=ax)
 
     # Set axis infos
-    set_axis_infos(ax, ylim=ylim, title=title_str)
+    set_axis_infos(ax, ylim=ylim, title_str=title_str)
 
 
-# TODO: add a function that plots a stacked boxplot
+def plot_stacked_boxplot(
+    df=None,
+    x_var=None,
+    y_var=None,
+    ylim=None,
+    title_str=None,
+    pal=None,
+    ax=None,
+    y_label=None,
+) -> None:
+    """
+    Plots a grouped boxplot
+    :param df: dataframe
+    :param x_var: x-axis variable
+    :param y_var: y-axis variable
+    :param ylim: y-axis limits
+    :param title_str: title of the plot
+    :param pal: palette
+    :param ax: axis to plot on
+    :return: None
+    """
+
+    if not pal:
+        df.plot(kind="bar", stacked=True, ax=ax, x=x_var, y=y_var)
+
+    if pal:
+        colors = [pal(i) for i in range(len(x_var))]
+        df.plot(kind="bar", stacked=True, ax=ax, x=x_var, y=y_var, colors=colors)
+
+    ### set y label
+    if y_label:
+        ax.set_ylabel(y_label)
+
+    # Set axis infos
+    set_axis_infos(ax, ylim=ylim, title_str=title_str)

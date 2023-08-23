@@ -39,13 +39,26 @@ def set_axis_infos(
     :param xlim: x-axis limits
     :param ylim: y-axis limits
     :param legend: legend
-    :param title: title
+    :param title_str: title
+    :param xticks: x-axis ticks
+    :param yticks: y-axis ticks
+    :param xlabel_size: x-axis label size
+    :param ylabel_size: y-axis label size
+    :param title_size: title size
+    :param ticks_size: ticks size
+    :param legend_size: legend size
+    :param legend_loc: legend location
     :return: None
     """
+
     if xlabel:
         ax.set_xlabel(xlabel)
+    if xlabel_size:
+        ax.xaxis.label.set_size(xlabel_size)
     if ylabel:
         ax.set_ylabel(ylabel)
+    if ylabel_size:
+        ax.yaxis.label.set_size(ylabel_size)
     if xlim:
         ax.set_xlim(xlim[0], xlim[1])
     if ylim:
@@ -54,6 +67,8 @@ def set_axis_infos(
         ax.set_xticks(xticks)
     if yticks:
         ax.set_yticks(yticks)
+    if ticks_size:
+        ax.tick_params(axis="both", which="major", labelsize=ticks_size)
     if legend:
         ax.legend(legend)
     if title:

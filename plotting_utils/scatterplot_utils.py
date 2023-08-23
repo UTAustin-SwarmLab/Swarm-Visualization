@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
+from .general_utils import set_axis_infos
 
 
 def basic_scatterplot(
@@ -44,8 +45,8 @@ def basic_scatterplot(
     if ylim:
         ax.set_ylim(ylim)
 
-    # Set title
-    ax.set_title(title_str)
+    # Set axis infos
+    set_axis_infos(ax, ylim=ylim, title_str=title_str)
 
 
 # joint plot: scatterplot with the CDFs
@@ -88,6 +89,6 @@ def scatter_pdf_plot(
         plt.ylim(ylim)
 
     # Set title
-    fig.fig.suptitle(title_str)
+    fig.fig.suptitle(title_str, fontsize=20, va="top", y=1.03)
 
     return fig

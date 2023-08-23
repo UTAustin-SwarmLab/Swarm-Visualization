@@ -34,7 +34,7 @@ def plot_pdf(
     )
 
     # Set axis infos
-    set_axis_infos(ax, xlabel=xlabel, title=title_str)
+    set_axis_infos(ax, xlabel=xlabel, title_str=title_str)
 
 
 def plot_several_pdf(
