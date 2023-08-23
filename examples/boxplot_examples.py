@@ -111,5 +111,6 @@ if __name__ == "__main__":
     # Test stacked boxplot
     df["$y_2$"] = df["$y$"] + 0.02
     df["$y_1$"] = df["$y$"] + 0.02
-    df = df.iloc[:10, :]
+    df = df.iloc[:5, :]
+    df["$x$"] = ["$x_%d$" % i for i in range(5)]
     test_stacked_boxplot(df=df, x_var="$x$", y_var=["$y_1$", "$y_2$"], y_label="$y$")
