@@ -52,7 +52,7 @@ def plot_paired_boxplot(
             )
 
     # Set axis infos
-    set_axis_infos(ax, ylim=ylim, title=title_str)
+    set_axis_infos(ax, ylim=ylim, title_str=title_str)
 
 
 """

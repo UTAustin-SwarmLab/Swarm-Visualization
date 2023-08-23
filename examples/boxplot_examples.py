@@ -55,6 +55,32 @@ def test_grouped_boxplot(df, x_var, y_var) -> None:
     save_fig(fig, save_loc, dpi=600)
 
 
+def test_stacked_boxplot(df, x_var, y_var, y_label) -> None:
+    """
+    Tests grouped boxplot
+    :param df: dataframe
+    :param x_var: x-axis variable
+    :param y_var: y-axis variable
+    :param hue: hue variable
+    :return: None
+    """
+
+    fig, ax = plt.subplots(figsize=(10, 10))
+    # Create a grouped boxplot
+    plot_stacked_boxplot(
+        df=df,
+        x_var=x_var,
+        y_var=y_var,
+        title_str="Stacked Boxplot",
+        ax=ax,
+        y_label=y_label,
+    )
+
+    # Save the plot
+    save_loc = os.path.join(example_plot_folder_loc, "boxplots", "stacked_boxplot.png")
+    save_fig(fig, save_loc, dpi=600)
+
+
 if __name__ == "__main__":
     # Set seed for reproducibility
     np.random.seed(0)
@@ -81,3 +107,9 @@ if __name__ == "__main__":
 
     # Test grouped boxplot
     test_grouped_boxplot(df=df, x_var="$x$", y_var="$y$")
+
+    # Test stacked boxplot
+    df["$y_2$"] = df["$y$"] + 0.02
+    df["$y_1$"] = df["$y$"] + 0.02
+    df = df.iloc[:10, :]
+    test_stacked_boxplot(df=df, x_var="$x$", y_var=["$y_1$", "$y_2$"], y_label="$y$")

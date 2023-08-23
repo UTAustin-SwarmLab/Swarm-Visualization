@@ -28,7 +28,7 @@ def basic_plot_ts(
     # Plot time series
     ax.plot(ts_vector, lw=lw)
 
-    set_axis_infos(ax, xlabel=xlabel, ylabel=ylabel, ylim=ylim, title=title_str)
+    set_axis_infos(ax, xlabel=xlabel, ylabel=ylabel, ylim=ylim, title_str=title_str)
 
 
 def overlaid_ts(

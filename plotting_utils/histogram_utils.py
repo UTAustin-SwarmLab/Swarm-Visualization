@@ -76,5 +76,5 @@ def plot_several_pdf(
 
     # Set axis infos
     set_axis_infos(
-        ax, xlabel=xlabel, ylabel=ylabel, title=title_str, xlim=xlim, legend=legend
+        ax, xlabel=xlabel, ylabel=ylabel, title_str=title_str, xlim=xlim, legend=legend
     )

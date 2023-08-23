@@ -45,7 +45,7 @@ def plot_grouped_violinplot(
             )
 
     # Set axis infos
-    set_axis_infos(ax, ylim=ylim, title=title_str)
+    set_axis_infos(ax, ylim=ylim, title_str=title_str)
 
 
 def plot_paired_violinplot(

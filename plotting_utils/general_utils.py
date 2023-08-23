@@ -27,9 +27,15 @@ def set_axis_infos(
     xlim=None,
     ylim=None,
     legend=None,
-    title: str = None,
+    title_str: str = None,
     xticks=None,
     yticks=None,
+    xlabel_size: int = 20,
+    ylabel_size: int = 20,
+    title_size: int = 26,
+    ticks_size: int = 18,
+    legend_size: int = 20,
+    legend_loc: str = "best",
 ) -> None:
     """
     Set axis information
@@ -39,6 +45,11 @@ def set_axis_infos(
     :param xlim: x-axis limits
     :param ylim: y-axis limits
     :param legend: legend
+    :param title_str: title
+    :param xticks: x-axis ticks
+    :param yticks: y-axis ticks
+    :param xlabel_size: x-axis label size
+    :param ylabel_size: y-axis label size
     :param title_str: title
     :param xticks: x-axis ticks
     :param yticks: y-axis ticks
@@ -70,6 +81,6 @@ def set_axis_infos(
     if ticks_size:
         ax.tick_params(axis="both", which="major", labelsize=ticks_size)
     if legend:
-        ax.legend(legend)
-    if title:
-        ax.set_title(title)
+        ax.legend(legend, fontsize=legend_size, loc=legend_loc)
+    if title_str:
+        ax.set_title(title_str, fontsize=title_size)
