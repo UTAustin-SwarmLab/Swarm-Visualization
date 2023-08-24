@@ -1,9 +1,10 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
-from .general_utils import set_axis_infos
+
+from swarm_visualizer.utility.general_utils import set_axis_infos
 
 
-def basic_scatterplot(
+def plot_basic_scatterplot(
     ts_x=None,
     ts_y=None,
     title_str: str = None,
@@ -16,8 +17,7 @@ def basic_scatterplot(
     color: str = "b",
     ax=None,
 ) -> None:
-    """
-    Basic scatter plot
+    """Basic scatter plot
     :param ts_x: x-axis time series
     :param ts_y: y-axis time series
     :param title_str: title of the plot
@@ -29,9 +29,8 @@ def basic_scatterplot(
     :param ms: marker size
     :param color: color of the markers
     :param ax: axis to plot
-    :return: None
+    :return: None.
     """
-
     # Scatter plot
     ax.scatter(ts_x, ts_y, lw=lw, s=ms, color=color)
 
@@ -50,7 +49,7 @@ def basic_scatterplot(
 
 
 # joint plot: scatterplot with the CDFs
-def scatter_pdf_plot(
+def plot_scatter_pdf_plot(
     ts_x=None,
     ts_y=None,
     title_str: str = None,
@@ -60,8 +59,7 @@ def scatter_pdf_plot(
     xlabel: str = "time",
     xlim=None,
 ):
-    """
-    Scatter plot with the CDFs and saves the plot
+    """Scatter plot with the CDFs and saves the plot
     :param ts_x: x-axis time series
     :param ts_y: y-axis time series
     :param title_str: title of the plot
@@ -70,9 +68,8 @@ def scatter_pdf_plot(
     :param ylim: y-axis limits
     :param xlabel: x-axis label
     :param xlim: x-axis limits
-    :return: None
+    :return: None.
     """
-
     # Joint plot
     fig = sns.jointplot(
         x=ts_x,

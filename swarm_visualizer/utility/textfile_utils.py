@@ -1,33 +1,31 @@
+"""These are basic utilities to manipulate files, dictionaries, and automatically
+create directories.
+
+Author: Sandeep Chinchali
+
 """
-    These are basic utilities to manipulate files, dictionaries, and automatically
-    create directories.
-
-    Author: Sandeep Chinchali
-
-"""
 
 
-import numpy as np
 import matplotlib
+import numpy as np
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-import pickle
-import random
-import itertools
-import sys, os
 import copy
+import itertools
+import os
+import pickle
 
 import numpy as np
 from scipy.ndimage import shift
-
 
 """
     shift a timeseries by one element to the right
 """
 
 
-def shift_dict_value(input_dict=None, key=None, shift_amount=-1, fill_value=np.NaN):
+def shift_dict_value(
+    input_dict=None, key=None, shift_amount=-1, fill_value=np.NaN
+):
     input_vec = input_dict[key]
 
     shifted_vec = shift_np_array(
@@ -115,8 +113,7 @@ def reverse_keys_values_dict(input_dict=None):
 
 
 def remove_and_create_dir(path):
-    """System call to rm -rf and then re-create a dir"""
-
+    """System call to rm -rf and then re-create a dir."""
     dir = os.path.dirname(path)
     print("attempting to delete ", dir, " path ", path)
     if os.path.exists(path):

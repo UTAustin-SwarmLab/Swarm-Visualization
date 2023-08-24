@@ -1,27 +1,18 @@
+"""Basic helper mathematical functions.
+
+Author: Sandeep Chinchali
+
 """
-    Basic helper mathematical functions
-
-    Author: Sandeep Chinchali
-
-"""
 
 
-import numpy as np
 import matplotlib
+import numpy as np
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-import pickle
 import random
-import itertools
-import sys, os
-import copy
-import pandas
 
 # np.random.seed(42)
 import numpy as np
-from scipy.ndimage import shift
-
 from numpy import linalg as LA
 
 
@@ -53,7 +44,7 @@ def get_random_uniform(p=0.5):
 
 
 def get_bounded_ts_history(ts=None, t=None, NUM_PAST=None, fill_val=-1):
-    start_time = t - NUM_PAST
+    t - NUM_PAST
 
     end_time = t
 

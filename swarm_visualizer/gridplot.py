@@ -1,5 +1,6 @@
-import matplotlib.pyplot as plt
 from typing import Dict
+
+import matplotlib.pyplot as plt
 
 
 # plot grid KPI subfigures
@@ -10,8 +11,8 @@ def plot_grid(
     lw: float = 3.0,
     xlabel: str = None,
 ) -> None:
-    """
-    Plot grid of time series
+    """Plot grid of time series.
+
     :param normalized_ts_dict: dictionary with time series to plot
     :param title_str: title of the plot
     :param plot_file: file to save the plot
@@ -19,10 +20,8 @@ def plot_grid(
     :param xlabel: x-axis label
     :return: None
     """
-
     # Number of rows and columns in the grid
     nrow = len(normalized_ts_dict.keys())
-    ncol = 1
 
     # Create figure with subplots
     plt.close("all")
@@ -39,7 +38,9 @@ def plot_grid(
     for ylabel_name, timeseries_dict in normalized_ts_dict.items():
         # Plot with x-axis if xvec is specified
         if "x" in timeseries_dict.keys():
-            axarr[row].plot(timeseries_dict["x"], timeseries_dict["ts_vector"], lw=lw)
+            axarr[row].plot(
+                timeseries_dict["x"], timeseries_dict["ts_vector"], lw=lw
+            )
         else:
             axarr[row].plot(timeseries_dict["ts_vector"], lw=lw)
 

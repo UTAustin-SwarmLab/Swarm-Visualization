@@ -1,10 +1,11 @@
-import seaborn as sns
 from typing import Dict
 
-from .general_utils import set_axis_infos
+import seaborn as sns
+
+from swarm_visualizer.utility.general_utils import set_axis_infos
 
 
-def basic_plot_ts(
+def plot_basic_plot_ts(
     ts_vector=None,
     title_str: str = None,
     ylabel: str = None,
@@ -13,8 +14,7 @@ def basic_plot_ts(
     xlabel: str = "time",
     ax=None,
 ) -> None:
-    """
-    Basic plot of a time series
+    """Basic plot of a time series
     :param ts_vector: time series
     :param title_str: title of the plot
     :param ylabel: y-axis label
@@ -22,16 +22,17 @@ def basic_plot_ts(
     :param ylim: y-axis limits
     :param xlabel: x-axis label
     :param ax: axis to plot on
-    :return: None
+    :return: None.
     """
-
     # Plot time series
     ax.plot(ts_vector, lw=lw)
 
-    set_axis_infos(ax, xlabel=xlabel, ylabel=ylabel, ylim=ylim, title_str=title_str)
+    set_axis_infos(
+        ax, xlabel=xlabel, ylabel=ylabel, ylim=ylim, title_str=title_str
+    )
 
 
-def overlaid_ts(
+def plot_overlaid_ts(
     normalized_ts_dict: Dict = None,
     title_str: str = None,
     ylabel: str = None,
@@ -45,8 +46,7 @@ def overlaid_ts(
     delete_yticks: bool = False,
     ax=None,
 ) -> None:
-    """
-    Overlaid time series plot
+    """Overlaid time series plot
     :param normalized_ts_dict: dictionary with time series to plot
     :param title_str: title of the plot
     :param ylabel: y-axis label
@@ -59,9 +59,8 @@ def overlaid_ts(
     :param DEFAULT_MARKERSIZE: default marker size
     :param delete_yticks: whether to delete the y-axis ticks
     :param ax: axis to plot on
-    :return: None
+    :return: None.
     """
-
     # dictionary:
     # key = ts_name, value is a dict, value = {'xvec': , 'ts_vector', 'lw', 'linestyle', 'color'}
 
