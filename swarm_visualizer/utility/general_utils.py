@@ -1,16 +1,59 @@
 import os
+
+import matplotlib.pylab as pylab
 import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+def set_plot_properties(
+    font_size: float = 20,
+    legend_font_size: float = 14,
+    xtick_label_size: float = 14,
+    ytick_label_size: float = 14,
+    markersize: float = 10,
+) -> None:
+    """Sets plot properties.
+
+    :param font_size: font size
+    :param legend_font_size: legend font size
+    :param xtick_label_size: xtick label size
+    :param ytick_label_size: ytick label size
+    :return: None.
+    """
+    sns.set_color_codes()
+    sns.set()
+
+    plt.rc("text", usetex=True)
+    font = {"family": "normal", "weight": "bold", "size": font_size}
+    plt.rc("font", **font)
+    plt.rcParams["text.latex.preamble"] = r"\boldmath"
+
+    plt.rcParams["axes.labelweight"] = "bold"
+    plt.rcParams["font.weight"] = "bold"
+
+    params = {
+        "legend.fontsize": legend_font_size,
+        "axes.labelsize": font_size,
+        "axes.titlesize": font_size,
+        "xtick.labelsize": xtick_label_size,
+        "ytick.labelsize": ytick_label_size,
+        "lines.markersize": markersize,
+        "figure.autolayout": True,
+    }
+
+    pylab.rcParams.update(params)
+
+    sns.set_style(style="darkgrid")
 
 
 def save_fig(fig, save_loc: str = None, dpi: int = 600) -> None:
-    """
-    Save figure
+    """Save figure.
+
     :param fig: figure
     :param save_loc: location to save the figure
     :param dpi: dpi
-    :return: None
+    :return: None.
     """
-
     # If save location doesn't exist, create it
     if not os.path.exists(os.path.dirname(save_loc)):
         os.makedirs(os.path.dirname(save_loc))
@@ -37,8 +80,8 @@ def set_axis_infos(
     legend_size: int = 20,
     legend_loc: str = "best",
 ) -> None:
-    """
-    Set axis information
+    """Set axis information.
+
     :param ax: axis
     :param xlabel: x-axis label
     :param ylabel: y-axis label
@@ -59,9 +102,8 @@ def set_axis_infos(
     :param ticks_size: ticks size
     :param legend_size: legend size
     :param legend_loc: legend location
-    :return: None
+    :return: None.
     """
-
     if xlabel:
         ax.set_xlabel(xlabel)
     if xlabel_size:

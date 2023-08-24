@@ -1,6 +1,6 @@
 import seaborn as sns
 
-from .general_utils import set_axis_infos
+from swarm_visualizer.utility.general_utils import set_axis_infos
 
 
 def plot_grouped_violinplot(
@@ -13,8 +13,8 @@ def plot_grouped_violinplot(
     pal=None,
     ax=None,
 ) -> None:
-    """
-    Plots a grouped violinplot
+    """Plots a grouped violinplot.
+
     :param df: dataframe
     :param x_var: x-axis variable
     :param y_var: y-axis variable
@@ -23,9 +23,8 @@ def plot_grouped_violinplot(
     :param order_list: order of the x-axis variable
     :param pal: palette
     :param ax: axis to plot on
-    :return: None
+    :return: None.
     """
-
     # Plots a violinplot
     if not pal:
         if order_list:
@@ -59,8 +58,8 @@ def plot_paired_violinplot(
     hue=None,
     ax=None,
 ) -> None:
-    """
-    Plots a paired boxplot
+    """Plots a paired boxplot.
+
     :param df: dataframe
     :param x_var: x-axis variable
     :param y_var: y-axis variable
@@ -70,26 +69,41 @@ def plot_paired_violinplot(
     :param pal: palette
     :param hue: hue variable
     :param ax: axis to plot on
-    :return: None
+    :return: None.
     """
-
     # Plots a boxplot
     if not pal:
         # Plots a boxplot with order
         if order_list:
-            sns.violinplot(x=x_var, y=y_var, data=df, order=order_list, hue=hue, ax=ax)
+            sns.violinplot(
+                x=x_var, y=y_var, data=df, order=order_list, hue=hue, ax=ax
+            )
         else:
-            sns.violinplot(x=x_var, y=y_var, data=df, order=order_list, hue=hue, ax=ax)
+            sns.violinplot(
+                x=x_var, y=y_var, data=df, order=order_list, hue=hue, ax=ax
+            )
 
     # Plots a boxplot with palette
     if pal:
         if order_list:
             sns.violinplot(
-                x=x_var, y=y_var, data=df, order=order_list, palette=pal, hue=hue, ax=ax
+                x=x_var,
+                y=y_var,
+                data=df,
+                order=order_list,
+                palette=pal,
+                hue=hue,
+                ax=ax,
             )
         else:
             sns.violinplot(
-                x=x_var, y=y_var, data=df, order=order_list, palette=pal, hue=hue, ax=ax
+                x=x_var,
+                y=y_var,
+                data=df,
+                order=order_list,
+                palette=pal,
+                hue=hue,
+                ax=ax,
             )
 
     # Set axis infos
