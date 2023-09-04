@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "swarm_visualizer"
+version = "0.0.1"
+authors = [
+  { name="UT Austin Swarm Lab", email="minkyu.choi@utexas.edu" },
+]
+description = "This is a plotting utility library for swarm robotics research."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy==1.22.0",
+    "pandas",
+    "seaborn"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/UTAustin-SwarmLab/Swarm-Visualization"
+"Bug Tracker" = "https://github.com/UTAustin-SwarmLab/Swarm-Visualization"
+
+[project.optional-dependencies]
+dev = ["black", "ruff", "mypy"]
+test = ["pytest", "pytest-cov", "pytest-mock"]
+
+[tool.black]
+line-length = 80
+
+[tool.ruff]
+select = [
+  "E",   # pycodestyle
+  "F",   # pyflakes
+  "UP",  # pyupgrade
+  "D",   # pydocstyle
+]
+
+ignore = ["ANN101", "ANN102"]
+
+extend-exclude = [".venv", "venv", "vscode"]
+
+[tool.ruff.pydocstyle]
+convention = "google"
