@@ -3,6 +3,7 @@ import seaborn as sns
 import matplotlib.pylab as pylab
 
 from typing import List, Dict
+from swarm_visualizer.utility.general_utils import save_fig
 
 
 def create_seperate_legend(
@@ -110,4 +111,4 @@ def create_seperate_legend(
         )
 
     # Saves legend
-    figLegend.savefig(save_loc, dpi=600)
+    save_fig(figLegend, save_loc, dpi=600)

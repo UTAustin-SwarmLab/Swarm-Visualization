@@ -149,33 +149,18 @@ def plot_overlaid_ts(
 
         i += 1
 
-    # Set labels
-    if fontsize:
-        if xlabel:
-            ax.set_xlabel(xlabel, fontsize=fontsize)
-        if ylabel:
-            ax.set_ylabel(ylabel, fontsize=fontsize)
-    else:
-        if xlabel:
-            ax.set_xlabel(xlabel)
-        if ylabel:
-            ax.set_ylabel(ylabel)
-
-    # Set x-axis ticks
-    if xticks:
-        ax.set_xticks(xticks)
-
-    # Set y-axis limits
-    if ylim:
-        ax.set_ylim(ylim[0], ylim[1])
+    set_axis_infos(
+        ax,
+        xlabel=xlabel,
+        ylabel=ylabel,
+        ylim=ylim,
+        xticks=xticks,
+        title_str=title_str,
+    )
 
     # Plot legend
     if legend_present:
         ax.legend(loc="best")
-
-    # Set title if not none
-    if title_str is not None:
-        ax.set_title(title_str, fontsize=fontsize)
 
     # Delete y-axis ticks if specified
     if delete_yticks:
