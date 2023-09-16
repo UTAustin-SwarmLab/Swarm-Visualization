@@ -18,8 +18,8 @@ def create_seperate_legend(
     legend_n_col: int = 1,
     legend_prop: Dict = None,
 ) -> None:
-    """
-    Creates a seperate legend
+    """Creates a seperate legend.
+
     :param names: names of the time series
     :param colors: colors of the time series
     :param linestyles: linestyles of the time series
@@ -33,7 +33,6 @@ def create_seperate_legend(
     :param legend_prop: legend properties
     :return: None
     """
-
     fig = plt.figure(constrained_layout=False)
     fig.set_size_inches(18.5, 10.5)
     gs = fig.add_gridspec(1, 1)

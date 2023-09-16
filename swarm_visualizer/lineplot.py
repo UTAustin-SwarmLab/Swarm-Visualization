@@ -14,7 +14,8 @@ def plot_basic_plot_ts(
     xlabel: str = "time",
     ax=None,
 ) -> None:
-    """Basic plot of a time series
+    """Basic plot of a time series.
+
     :param ts_vector: time series
     :param title_str: title of the plot
     :param ylabel: y-axis label
@@ -46,7 +47,8 @@ def plot_overlaid_ts(
     delete_yticks: bool = False,
     ax=None,
 ) -> None:
-    """Overlaid time series plot
+    """Overlaid time series plot.
+    
     :param normalized_ts_dict: dictionary with time series to plot
     :param title_str: title of the plot
     :param ylabel: y-axis label

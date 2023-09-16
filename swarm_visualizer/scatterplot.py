@@ -17,7 +17,8 @@ def plot_basic_scatterplot(
     color: str = "b",
     ax=None,
 ) -> None:
-    """Basic scatter plot
+    """Basic scatter plot.
+
     :param ts_x: x-axis time series
     :param ts_y: y-axis time series
     :param title_str: title of the plot
@@ -59,7 +60,8 @@ def plot_scatter_pdf_plot(
     xlabel: str = "time",
     xlim=None,
 ):
-    """Scatter plot with the CDFs and saves the plot
+    """Scatter plot with the CDFs and saves the plot.
+    
     :param ts_x: x-axis time series
     :param ts_y: y-axis time series
     :param title_str: title of the plot

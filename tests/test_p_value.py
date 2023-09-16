@@ -48,7 +48,6 @@ def test_star_pvalue(df, x_var, y_var, hue) -> None:
     :param y_var: y-axis variable
     :return: None.
     """
-
     # Sets plot style
     set_plot_properties()
 
@@ -95,7 +94,6 @@ def test_float_p_value(df, x_var, y_var) -> None:
     :param hue: hue variable
     :return: None.
     """
-
     # Sets plot style
     set_plot_properties()
 

@@ -40,15 +40,14 @@ _SAVE_LOC = os.path.abspath(
     ("df", "x_var", "y_var"), [(_DATA_FRAME, "$x$", r"$f_\theta(x)$")]
 )
 def test_grouped_violinplot(df, x_var, y_var) -> None:
-    """
-    Tests grouped violinplot
+    """Tests grouped violinplot.
+
     :param df: dataframe
     :param x_var: x-axis variable
     :param y_var: y-axis variable
     :param hue: hue variable
     :return: None
     """
-
     # Set plot style
     set_plot_properties()
 
@@ -68,15 +67,14 @@ def test_grouped_violinplot(df, x_var, y_var) -> None:
     [(_DATA_FRAME, "$x$", r"$f_\theta(x)$", "Groups")],
 )
 def test_paired_violinplot(df, x_var, y_var, hue) -> None:
-    """
-    Tests paired violinplot
+    """Tests paired violinplot.
+    
     :param df: dataframe
     :param x_var: x-axis variable
     :param y_var: y-axis variable
     :param hue: hue variable
     :return: None
     """
-
     fig, ax = plt.subplots(figsize=(10, 10))
     # Create a paired violinplot
     plot_paired_violinplot(

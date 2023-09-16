@@ -4,7 +4,6 @@ import os
 
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
 import pytest
 
 from swarm_visualizer.scatterplot import (
@@ -24,13 +23,12 @@ _SAVE_LOC = os.path.abspath(
 
 @pytest.mark.parametrize(("x_data", "y_data"), [(_X_DATA, _Y_DATA)])
 def test_basic_scatterplot(x_data, y_data) -> None:
-    """
-    Tests basic scatterplot
+    """Tests basic scatterplot.
+
     :param x_data: x-axis data
     :param y_data: y-axis data
     :return: None
     """
-
     # Sets plot style
     set_plot_properties()
 
@@ -58,13 +56,12 @@ def test_basic_scatterplot(x_data, y_data) -> None:
 
 @pytest.mark.parametrize(("x_data", "y_data"), [(_X_DATA, _Y_DATA)])
 def test_scatter_pdf_plot(x_data, y_data) -> None:
-    """
-    Tests scatterplot with CDFs
+    """Tests scatterplot with CDFs.
+
     :param x_data: x-axis data
     :param y_data: y-axis data
     :return: None
     """
-
     # Sets plot style
     set_plot_properties()
 

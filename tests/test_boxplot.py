@@ -47,7 +47,6 @@ def test_paired_boxplot(df, x_var, y_var, hue) -> None:
     :param y_var: y-axis variable
     :return: None.
     """
-
     # Sets plot style
     set_plot_properties()
 
@@ -78,7 +77,6 @@ def test_grouped_boxplot(df, x_var, y_var) -> None:
     :param hue: hue variable
     :return: None.
     """
-
     # Sets plot style
     set_plot_properties()
 

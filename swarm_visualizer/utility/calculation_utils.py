@@ -9,10 +9,8 @@ import matplotlib
 import numpy as np
 
 matplotlib.use("Agg")
-import random
 
-# np.random.seed(42)
-import numpy as np
+import random
 from numpy import linalg as LA
 
 
