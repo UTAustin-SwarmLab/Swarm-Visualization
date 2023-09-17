@@ -1,13 +1,9 @@
 from __future__ import annotations
 
 import os
-
-import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
 import pytest
 
-from swarm_visualizer.utility.general_utils import save_fig, set_plot_properties
+from swarm_visualizer.utility.general_utils import set_plot_properties
 from swarm_visualizer.utility.legendplot_utils import create_seperate_legend
 
 # Example Labels
@@ -75,8 +71,8 @@ def test_plot_legend(
     legend_n_col,
     markersize,
 ) -> None:
-    """
-    Tests legend plotting
+    """Tests legend plotting.
+
     :param labels: labels
     :param colors: colors
     :param linestyles: linestyles
@@ -87,7 +83,6 @@ def test_plot_legend(
     :param markersize: markersize
     :return: None
     """
-
     # Sets plot style
     set_plot_properties()
 

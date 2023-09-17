@@ -4,7 +4,6 @@ import os
 
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
 import pytest
 
 from swarm_visualizer.lineplot import plot_basic_plot_ts, plot_overlaid_ts
@@ -32,7 +31,7 @@ _NORMALIZED_TS_DICT = {
         "linestyle": "-",
         "color": "r",
     },
-    "$\sin$": {
+    "$\\sin$": {
         "xvec": np.arange(0, 10, 0.1),
         "ts_vector": _SIN_DATA,
         "lw": 3.0,
@@ -40,7 +39,7 @@ _NORMALIZED_TS_DICT = {
         "color": "g",
         "zorder": 2,
     },
-    "$\cos$": {
+    "$\\cos$": {
         "xvec": np.arange(0, 10, 0.1),
         "ts_vector": _COS_DATA,
         "lw": 3.0,
@@ -58,12 +57,11 @@ _SAVE_LOC = os.path.abspath(
 
 @pytest.mark.parametrize(("ts_vector"), ([_X_DATA]))
 def test_basic_ts_plot(ts_vector) -> None:
-    """
-    Tests basic time series plot
+    """Tests basic time series plot.
+
     :param ts_vector: time series
     :return: None
     """
-
     # Sets plot style
     set_plot_properties()
 
@@ -87,12 +85,11 @@ def test_basic_ts_plot(ts_vector) -> None:
 
 @pytest.mark.parametrize(("normalized_ts_dict"), ([_NORMALIZED_TS_DICT]))
 def test_overlaid_ts_plot(normalized_ts_dict) -> None:
-    """
-    Tests overlaid time series plot
+    """Tests overlaid time series plot.
+
     :param normalized_ts_dict: dictionary with time series to plot
     :return: None
     """
-
     # Sets plot style
     set_plot_properties()
 

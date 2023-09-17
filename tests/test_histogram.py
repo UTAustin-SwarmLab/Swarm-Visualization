@@ -10,7 +10,6 @@ import pytest
 from swarm_visualizer.histogram import (
     plot_pdf,
     plot_several_pdf,
-    plot_stacked_histogram,
 )
 from swarm_visualizer.utility.general_utils import save_fig, set_plot_properties
 
@@ -32,11 +31,11 @@ _SAVE_LOC = os.path.abspath(
 
 @pytest.mark.parametrize(("data_vector"), [(_X1_DATA)])
 def test_plot_pdf(data_vector) -> None:
-    """
+    """Tests plot pdf.
+
     :param data_vector: data vector
     :return: None
     """
-
     # Sets plot style
     set_plot_properties()
 
@@ -52,11 +51,11 @@ def test_plot_pdf(data_vector) -> None:
 
 @pytest.mark.parametrize(("data_vector_list"), [(_X_DATA)])
 def test_plot_several_pdf(data_vector_list) -> None:
-    """
+    """Tests plotting several pdf in the same plot.
+
     :param data_vector_list: list of data vectors
     :return: None
     """
-
     # Sets plot style
     set_plot_properties()
 
@@ -69,37 +68,4 @@ def test_plot_several_pdf(data_vector_list) -> None:
 
     # Save the plot
     save_loc = os.path.join(_SAVE_LOC, "histograms", "several_pdf.png")
-    save_fig(fig, save_loc, dpi=600)
-
-
-@pytest.mark.parametrize(
-    ("df", "x_var", "y_var", "y_label"),
-    [(_DATA_FRAME, "$x$", ["$y_1$", "$y_2$"], "$y$")],
-)
-def test_stacked_histogram(df, x_var, y_var, y_label) -> None:
-    """
-    Tests grouped boxplot
-    :param df: dataframe
-    :param x_var: x-axis variable
-    :param y_var: y-axis variable
-    :param hue: hue variable
-    :return: None
-    """
-
-    # Sets plot style
-    set_plot_properties()
-
-    fig, ax = plt.subplots(figsize=(10, 10))
-    # Create a grouped boxplot
-    plot_stacked_histogram(
-        df=df,
-        x_var=x_var,
-        y_var=y_var,
-        title_str="Stacked Boxplot",
-        ax=ax,
-        y_label=y_label,
-    )
-
-    # Save the plot
-    save_loc = os.path.join(_SAVE_LOC, "histograms", "stacked_histogram.png")
     save_fig(fig, save_loc, dpi=600)

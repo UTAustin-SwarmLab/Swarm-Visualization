@@ -18,7 +18,8 @@ def plot_paired_boxplot(
     hue=None,
     ax=None,
 ) -> None:
-    """Plots a paired boxplot
+    """Plots a paired boxplot.
+
     :param df: dataframe
     :param x_var: x-axis variable
     :param y_var: y-axis variable
@@ -84,7 +85,8 @@ def plot_grouped_boxplot(
     pal=None,
     ax=None,
 ) -> None:
-    """Plots a grouped boxplot
+    """Plots a grouped boxplot.
+
     :param df: dataframe
     :param x_var: x-axis variable
     :param y_var: y-axis variable
