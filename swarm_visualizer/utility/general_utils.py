@@ -11,6 +11,7 @@ def set_plot_properties(
     xtick_label_size: float = 14,
     ytick_label_size: float = 14,
     markersize: float = 10,
+    usetex: bool = False,
 ) -> None:
     """Sets plot properties.
 
@@ -18,12 +19,14 @@ def set_plot_properties(
     :param legend_font_size: legend font size
     :param xtick_label_size: xtick label size
     :param ytick_label_size: ytick label size
+    :param markersize: marker size
+    :param usetex: use tex
     :return: None.
     """
     sns.set_color_codes()
     sns.set()
 
-    plt.rc("text", usetex=True)
+    plt.rc("text", usetex=usetex)
     font = {"family": "normal", "weight": "bold", "size": font_size}
     plt.rc("font", **font)
     plt.rcParams["text.latex.preamble"] = r"\boldmath"
