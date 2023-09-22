@@ -3,6 +3,7 @@ import os
 import matplotlib.pylab as pylab
 import matplotlib.pyplot as plt
 import seaborn as sns
+import shutil
 
 
 def set_plot_properties(
@@ -11,7 +12,7 @@ def set_plot_properties(
     xtick_label_size: float = 14,
     ytick_label_size: float = 14,
     markersize: float = 10,
-    usetex: bool = False,
+    usetex: bool = True,
 ) -> None:
     """Sets plot properties.
 
@@ -26,7 +27,10 @@ def set_plot_properties(
     sns.set_color_codes()
     sns.set()
 
-    plt.rc("text", usetex=usetex)
+    if shutil.which("latex"):
+        plt.rc("text", usetex=usetex)
+    else:
+        plt.rc("text", usetex=False)
     font = {"family": "normal", "weight": "bold", "size": font_size}
     plt.rc("font", **font)
     plt.rcParams["text.latex.preamble"] = r"\boldmath"
