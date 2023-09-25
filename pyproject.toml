@@ -19,7 +19,8 @@ classifiers = [
 dependencies = [
     "numpy",
     "pandas",
-    "seaborn"
+    "seaborn",
+    "statannot"
 ]
 
 [project.urls]
