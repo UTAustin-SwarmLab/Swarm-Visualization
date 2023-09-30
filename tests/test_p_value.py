@@ -69,7 +69,10 @@ def test_star_pvalue(df, x_var, y_var, hue) -> None:
         y_var=y_var,
         hue=hue,
         ax=ax,
-        box_pairs=[(("$x_1$", "a"), ("$x_2$", "b"))],
+        box_pairs=[
+            (("$x_1$", "a"), ("$x_2$", "b")),
+            (("$x_2$", "a"), ("$x_2$", "b")),
+        ],
         test_type="Wilcoxon",
         text_format="star",
         loc="inside",
