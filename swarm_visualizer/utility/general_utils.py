@@ -13,6 +13,7 @@ def set_plot_properties(
     ytick_label_size: float = 14,
     markersize: float = 10,
     usetex: bool = True,
+    autolayout = True,
 ) -> None:
     """Sets plot properties.
 
@@ -45,7 +46,7 @@ def set_plot_properties(
         "xtick.labelsize": xtick_label_size,
         "ytick.labelsize": ytick_label_size,
         "lines.markersize": markersize,
-        "figure.autolayout": True,
+        "figure.autolayout": autolayout,
     }
 
     pylab.rcParams.update(params)
