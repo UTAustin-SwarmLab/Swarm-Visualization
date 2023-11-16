@@ -86,6 +86,7 @@ def set_axis_infos(
     ticks_size: int = 18,
     legend_size: int = 20,
     legend_loc: str = "best",
+    grid: bool = False,
 ) -> None:
     """Set axis information.
 
@@ -133,3 +134,5 @@ def set_axis_infos(
         ax.legend(legend, fontsize=legend_size, loc=legend_loc)
     if title_str:
         ax.set_title(title_str, fontsize=title_size)
+    if grid:
+        ax.grid()
