@@ -69,7 +69,7 @@ def plot_sns_grouped_barplot(
     if pal:
         colors = [pal(i) for i in range(len(x_var))]
         sns.barplot(
-            ax=ax, x=x_var, y=y_var, colors=colors, hue=hue, data=df
+            ax=ax, x=x_var, y=y_var, palette=colors, hue=hue, data=df
         )
 
     ### set y label
