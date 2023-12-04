@@ -74,7 +74,7 @@ def save_fig(fig, save_loc: str = None, dpi: int = 600) -> None:
 def set_axis_infos(
     ax,
     xlabel: str = None,
-    ylabel: int = None,
+    ylabel: str = None,
     xlim=None,
     ylim=None,
     legend=None,
