@@ -71,7 +71,6 @@ def test_scatter_pdf_plot(x_data, y_data) -> None:
         ts_y=y_data,
         title_str="Scatter Plot with CDFs",
         ylabel="$y$",
-        lw=3.0,
         ylim=None,
         xlabel="$x$",
         xlim=None,

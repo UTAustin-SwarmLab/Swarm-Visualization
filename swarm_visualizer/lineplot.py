@@ -38,7 +38,6 @@ def plot_overlaid_ts(
     title_str: str = None,
     ylabel: str = None,
     xlabel: str = "time",
-    fontsize: float = 30,
     xticks=None,
     ylim=None,
     DEFAULT_ALPHA: float = 1.0,
@@ -53,7 +52,6 @@ def plot_overlaid_ts(
     :param title_str: title of the plot
     :param ylabel: y-axis label
     :param xlabel: x-axis label
-    :param fontsize: font size
     :param xticks: x-axis ticks
     :param ylim: y-axis limits
     :param DEFAULT_ALPHA: default alpha value

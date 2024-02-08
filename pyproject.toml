@@ -20,7 +20,8 @@ dependencies = [
     "numpy",
     "pandas",
     "seaborn",
-    "statannot"
+    "statannot",
+    "scipy"
 ]
 
 [project.urls]

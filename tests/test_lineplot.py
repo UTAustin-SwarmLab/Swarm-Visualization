@@ -101,7 +101,6 @@ def test_overlaid_ts_plot(normalized_ts_dict) -> None:
         title_str="Overlaid Time Series Plot",
         ylabel="$y$",
         xlabel="$x$",
-        fontsize=30,
         xticks=None,
         ylim=None,
         DEFAULT_ALPHA=1.0,
