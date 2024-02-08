@@ -1,4 +1,3 @@
-import numpy as np
 import seaborn as sns
 
 from swarm_visualizer.utility.general_utils import set_axis_infos
