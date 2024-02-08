@@ -55,7 +55,6 @@ def plot_scatter_pdf_plot(
     ts_y=None,
     title_str: str = None,
     ylabel: str = None,
-    lw: float = 3.0,
     ylim=None,
     xlabel: str = "time",
     xlim=None,
