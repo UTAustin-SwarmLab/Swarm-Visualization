@@ -30,7 +30,7 @@ _GROUPS = np.concatenate(
 )
 
 _DATA_FRAME = pd.DataFrame(
-    {"$y$": _X_DATA, "$x$": _X_LABEL, "_GROUPS": _GROUPS}
+    {"$y$": _X_DATA, "$x$": _X_LABEL, "hue": _GROUPS}
 )
 _SAVE_LOC = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "example_plots")
@@ -38,7 +38,7 @@ _SAVE_LOC = os.path.abspath(
 
 
 @pytest.mark.parametrize(
-    ("df", "x_var", "y_var", "hue"), [(_DATA_FRAME, "$x$", "$y$", _GROUPS)]
+    ("df", "x_var", "y_var", "hue"), [(_DATA_FRAME, "$x$", "$y$", "hue")]
 )
 def test_star_pvalue(df, x_var, y_var, hue) -> None:
     """Tests paired boxplot.
