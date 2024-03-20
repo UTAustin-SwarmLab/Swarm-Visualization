@@ -1,4 +1,5 @@
-from statannot import add_stat_annotation
+from statannotations.Annotator import Annotator
+
 
 
 def add_wilcoxon_value(
@@ -15,17 +16,7 @@ def add_wilcoxon_value(
     fontsize=20,
     verbose=0,
 ) -> None:
-    add_stat_annotation(
-        ax,
-        data=df,
-        x=x_var,
-        y=y_var,
-        hue=hue,
-        order=order_list,
-        box_pairs=box_pairs,
-        test=test_type,
-        text_format=text_format,
-        loc=loc,
-        verbose=verbose,
-        fontsize=fontsize,
-    )
+    
+    annotator = Annotator(ax,box_pairs,data=df, x=x_var, y=y_var, hue = hue, order=order_list)
+    annotator.configure(test=test_type, text_format=text_format, loc=loc, verbose=verbose, fontsize=fontsize)
+    annotator.apply_and_annotate()

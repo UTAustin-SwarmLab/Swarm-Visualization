@@ -5,18 +5,18 @@ import seaborn as sns
 from swarm_visualizer.utility.general_utils import set_axis_infos
 
 
-def plot_basic_plot_ts(
-    ts_vector=None,
+def plot_basic_lineplot(
+    vector=None,
     title_str: str = None,
     ylabel: str = None,
     lw: float = 3.0,
     ylim=None,
-    xlabel: str = "time",
+    xlabel: str = "x",
     ax=None,
 ) -> None:
-    """Basic plot of a time series.
+    """Basic lineplot.
 
-    :param ts_vector: time series
+    :param vector: vector to plot
     :param title_str: title of the plot
     :param ylabel: y-axis label
     :param lw: line width
@@ -26,18 +26,18 @@ def plot_basic_plot_ts(
     :return: None.
     """
     # Plot time series
-    ax.plot(ts_vector, lw=lw)
+    ax.plot(vector, lw=lw)
 
     set_axis_infos(
         ax, xlabel=xlabel, ylabel=ylabel, ylim=ylim, title_str=title_str
     )
 
 
-def plot_overlaid_ts(
+def plot_overlaid_lineplot(
     normalized_ts_dict: Dict = None,
     title_str: str = None,
     ylabel: str = None,
-    xlabel: str = "time",
+    xlabel: str = "x",
     xticks=None,
     ylim=None,
     DEFAULT_ALPHA: float = 1.0,
@@ -46,9 +46,9 @@ def plot_overlaid_ts(
     delete_yticks: bool = False,
     ax=None,
 ) -> None:
-    """Overlaid time series plot.
+    """Overlaid line plot.
     
-    :param normalized_ts_dict: dictionary with time series to plot
+    :param normalized_ts_dict: dictionary with values to plot
     :param title_str: title of the plot
     :param ylabel: y-axis label
     :param xlabel: x-axis label

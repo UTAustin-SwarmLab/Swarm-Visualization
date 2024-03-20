@@ -20,7 +20,7 @@ dependencies = [
     "numpy",
     "pandas",
     "seaborn",
-    "statannot",
+    "statannotations",
     "scipy"
 ]
 

@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pytest
 
-from swarm_visualizer.lineplot import plot_basic_plot_ts, plot_overlaid_ts
+from swarm_visualizer.lineplot import plot_basic_lineplot, plot_overlaid_lineplot
 from swarm_visualizer.utility.general_utils import save_fig, set_plot_properties
 
 _X_DATA = np.arange(0, 10, 0.1) + np.random.normal(0, 0.1, 100)
@@ -56,7 +56,7 @@ _SAVE_LOC = os.path.abspath(
 
 
 @pytest.mark.parametrize(("ts_vector"), ([_X_DATA]))
-def test_basic_ts_plot(ts_vector) -> None:
+def test_basic_lineplot(ts_vector) -> None:
     """Tests basic time series plot.
 
     :param ts_vector: time series
@@ -68,9 +68,9 @@ def test_basic_ts_plot(ts_vector) -> None:
     fig, ax = plt.subplots(figsize=(10, 10))
 
     # Plot time series
-    plot_basic_plot_ts(
-        ts_vector=ts_vector,
-        title_str="Basic Time Series Plot",
+    plot_basic_lineplot(
+        vector=ts_vector,
+        title_str="Basic Line Plot",
         ylabel="$y$",
         lw=3.0,
         ylim=None,
@@ -84,7 +84,7 @@ def test_basic_ts_plot(ts_vector) -> None:
 
 
 @pytest.mark.parametrize(("normalized_ts_dict"), ([_NORMALIZED_TS_DICT]))
-def test_overlaid_ts_plot(normalized_ts_dict) -> None:
+def test_overlaid_lineplot(normalized_ts_dict) -> None:
     """Tests overlaid time series plot.
 
     :param normalized_ts_dict: dictionary with time series to plot
@@ -96,9 +96,9 @@ def test_overlaid_ts_plot(normalized_ts_dict) -> None:
     fig, ax = plt.subplots(figsize=(10, 10))
 
     # Plot overlaid time series
-    plot_overlaid_ts(
+    plot_overlaid_lineplot(
         normalized_ts_dict=normalized_ts_dict,
-        title_str="Overlaid Time Series Plot",
+        title_str="Overlaid Line Plot",
         ylabel="$y$",
         xlabel="$x$",
         xticks=None,
