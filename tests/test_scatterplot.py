@@ -36,8 +36,8 @@ def test_basic_scatterplot(x_data, y_data) -> None:
 
     # Create a  basic scatter plot
     plot_basic_scatterplot(
-        ts_x=x_data,
-        ts_y=y_data,
+        x=x_data,
+        y=y_data,
         title_str="Basic Scatter Plot",
         ylabel="$y$",
         lw=3.0,
@@ -67,8 +67,8 @@ def test_scatter_pdf_plot(x_data, y_data) -> None:
 
     # Create a scatter plot with CDFs
     fig = plot_scatter_pdf_plot(
-        ts_x=x_data,
-        ts_y=y_data,
+        x=x_data,
+        y=y_data,
         title_str="Scatter Plot with CDFs",
         ylabel="$y$",
         ylim=None,

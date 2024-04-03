@@ -5,18 +5,18 @@ from swarm_visualizer.utility.general_utils import set_axis_infos
 
 
 def plot_pdf(
-    data_vector=None, xlabel: str = None, title_str: str = None, ax=None
+    data=None, xlabel: str = None, title_str: str = None, ax=None
 ) -> None:
-    """Plot PDF of a data vector.
+    """Plot PDF of a data.
 
-    :param data_vector: data vector
+    :param data: data to plot
     :param xlabel: x-axis label
     :param title_str: title of the plot
     :param ax: axis to plot on
     :return: None.
     """
-    # Convert data vector to numpy array
-    np_data = np.array(data_vector)
+    # Convert data to numpy array
+    np_data = np.array(data)
 
     # Remove NaNs
     clean_data = np_data[~np.isnan(np_data)]
@@ -37,7 +37,7 @@ def plot_pdf(
 
 
 def plot_several_pdf(
-    data_vector_list=None,
+    data_list=None,
     xlabel: str = None,
     title_str: str = None,
     legend=None,
@@ -46,9 +46,9 @@ def plot_several_pdf(
     kde: bool = False,
     ax=None,
 ) -> None:
-    """Plot PDF of a data vector.
+    """Plot PDF of a data list.
 
-    :param data_vector: data vector
+    :param data_list: data list
     :param xlabel: x-axis label
     :param title_str: title of the plot
     :param legend: legend of the plot
@@ -58,10 +58,10 @@ def plot_several_pdf(
     :param ax: axis to plot on
     :return: None.
     """
-    for i, data_vector in enumerate(data_vector_list):
-        # sns.distplot(data_vector, norm_hist = norm, kde=kde)
+    for i, data in enumerate(data_list):
+        # sns.distplot(data, norm_hist = norm, kde=kde)
         sns.histplot(
-            data_vector,
+            data,
             kde=kde,
             stat="density",
             kde_kws=dict(cut=3),
@@ -69,7 +69,7 @@ def plot_several_pdf(
             edgecolor=(1, 1, 1, 0.4),
             ax=ax,
         )
-        # sns.histplot(data_vector, norm_hist = norm)
+        # sns.histplot(data, norm_hist = norm)
         # plt.hold(True)
 
     # Set axis infos

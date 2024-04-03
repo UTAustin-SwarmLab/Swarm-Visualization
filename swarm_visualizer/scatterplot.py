@@ -5,8 +5,8 @@ from swarm_visualizer.utility.general_utils import set_axis_infos
 
 
 def plot_basic_scatterplot(
-    ts_x=None,
-    ts_y=None,
+    x=None,
+    y=None,
     title_str: str = None,
     ylabel: str = None,
     lw: float = 3.0,
@@ -19,8 +19,8 @@ def plot_basic_scatterplot(
 ) -> None:
     """Basic scatter plot.
 
-    :param ts_x: x-axis time series
-    :param ts_y: y-axis time series
+    :param x: x-axis data
+    :param y: y-axis data
     :param title_str: title of the plot
     :param ylabel: y-axis label
     :param lw: line width
@@ -33,7 +33,7 @@ def plot_basic_scatterplot(
     :return: None.
     """
     # Scatter plot
-    ax.scatter(ts_x, ts_y, lw=lw, s=ms, color=color)
+    ax.scatter(x, y, lw=lw, s=ms, color=color)
 
     # Set labels
     ax.set_xlabel(xlabel)
@@ -51,18 +51,18 @@ def plot_basic_scatterplot(
 
 # joint plot: scatterplot with the CDFs
 def plot_scatter_pdf_plot(
-    ts_x=None,
-    ts_y=None,
+    x=None,
+    y=None,
     title_str: str = None,
     ylabel: str = None,
     ylim=None,
     xlabel: str = "time",
     xlim=None,
 ):
-    """Scatter plot with the CDFs and saves the plot.
+    """Scatter plot with the PDFs and saves the plot.
     
-    :param ts_x: x-axis time series
-    :param ts_y: y-axis time series
+    :param x: x-axis data
+    :param y: y-axis data
     :param title_str: title of the plot
     :param ylabel: y-axis label
     :param lw: line width
@@ -73,8 +73,8 @@ def plot_scatter_pdf_plot(
     """
     # Joint plot
     fig = sns.jointplot(
-        x=ts_x,
-        y=ts_y,
+        x=x,
+        y=y,
     )
 
     # Set labels

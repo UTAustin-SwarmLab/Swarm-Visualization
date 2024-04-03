@@ -29,11 +29,11 @@ _SAVE_LOC = os.path.abspath(
 )
 
 
-@pytest.mark.parametrize(("data_vector"), [(_X1_DATA)])
-def test_plot_pdf(data_vector) -> None:
+@pytest.mark.parametrize(("data"), [(_X1_DATA)])
+def test_plot_pdf(data) -> None:
     """Tests plot pdf.
 
-    :param data_vector: data vector
+    :param data: data 
     :return: None
     """
     # Sets plot style
@@ -42,18 +42,18 @@ def test_plot_pdf(data_vector) -> None:
     fig, ax = plt.subplots(figsize=(10, 10))
 
     # Plot PDF
-    plot_pdf(data_vector=data_vector, xlabel="$x$", title_str="PDF", ax=ax)
+    plot_pdf(data=data, xlabel="$x$", title_str="PDF", ax=ax)
 
     # Save the plot
     save_loc = os.path.join(_SAVE_LOC, "histograms", "pdf.png")
     save_fig(fig, save_loc, dpi=600)
 
 
-@pytest.mark.parametrize(("data_vector_list"), [(_X_DATA)])
-def test_plot_several_pdf(data_vector_list) -> None:
+@pytest.mark.parametrize(("data_list"), [(_X_DATA)])
+def test_plot_several_pdf(data_list) -> None:
     """Tests plotting several pdf in the same plot.
 
-    :param data_vector_list: list of data vectors
+    :param data_list: list of data 
     :return: None
     """
     # Sets plot style
@@ -63,7 +63,7 @@ def test_plot_several_pdf(data_vector_list) -> None:
 
     # Plot PDF
     plot_several_pdf(
-        data_vector_list=data_vector_list, xlabel="$x$", title_str="PDF", ax=ax
+        data_list=data_list, xlabel="$x$", title_str="PDF", ax=ax
     )
 
     # Save the plot
