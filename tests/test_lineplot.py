@@ -16,32 +16,32 @@ _SIN_DATA = np.sin(_X_DATA)
 _COS_DATA = np.cos(_Y_DATA)
 
 # Normalized time series dictionary
-_NORMALIZED_TS_DICT = {
+_NORMALIZED_DICT = {
     "$x$": {
-        "xvec": np.arange(0, 10, 0.1),
-        "ts_vector": _X_DATA,
+        "x": np.arange(0, 10, 0.1),
+        "y": _X_DATA,
         "lw": 3.0,
         "linestyle": "-",
         "color": "b",
     },
     "$y$": {
-        "xvec": np.arange(0, 10, 0.1),
-        "ts_vector": _Y_DATA,
+        "x": np.arange(0, 10, 0.1),
+        "y": _Y_DATA,
         "lw": 3.0,
         "linestyle": "-",
         "color": "r",
     },
     "$\\sin$": {
-        "xvec": np.arange(0, 10, 0.1),
-        "ts_vector": _SIN_DATA,
+        "x": np.arange(0, 10, 0.1),
+        "y": _SIN_DATA,
         "lw": 3.0,
         "linestyle": "-",
         "color": "g",
         "zorder": 2,
     },
     "$\\cos$": {
-        "xvec": np.arange(0, 10, 0.1),
-        "ts_vector": _COS_DATA,
+        "x": np.arange(0, 10, 0.1),
+        "y": _COS_DATA,
         "lw": 3.0,
         "linestyle": "-",
         "color": "k",
@@ -55,11 +55,11 @@ _SAVE_LOC = os.path.abspath(
 )
 
 
-@pytest.mark.parametrize(("ts_vector"), ([_X_DATA]))
-def test_basic_lineplot(ts_vector) -> None:
+@pytest.mark.parametrize(("y_data"), ([_Y_DATA]))
+def test_basic_lineplot(y_data) -> None:
     """Tests basic time series plot.
 
-    :param ts_vector: time series
+    :param y_data: time series
     :return: None
     """
     # Sets plot style
@@ -69,7 +69,7 @@ def test_basic_lineplot(ts_vector) -> None:
 
     # Plot time series
     plot_basic_lineplot(
-        vector=ts_vector,
+        y=y_data,
         title_str="Basic Line Plot",
         ylabel="$y$",
         lw=3.0,
@@ -79,15 +79,15 @@ def test_basic_lineplot(ts_vector) -> None:
     )
 
     # Save the plot
-    save_loc = os.path.join(_SAVE_LOC, "lineplots", "basic_ts_plot.png")
+    save_loc = os.path.join(_SAVE_LOC, "lineplots", "basic_lineplot.png")
     save_fig(fig, save_loc, dpi=600)
 
 
-@pytest.mark.parametrize(("normalized_ts_dict"), ([_NORMALIZED_TS_DICT]))
-def test_overlaid_lineplot(normalized_ts_dict) -> None:
+@pytest.mark.parametrize(("normalized_dict"), ([_NORMALIZED_DICT]))
+def test_overlaid_lineplot(normalized_dict) -> None:
     """Tests overlaid time series plot.
 
-    :param normalized_ts_dict: dictionary with time series to plot
+    :param normalized_dict: dictionary with time series to plot
     :return: None
     """
     # Sets plot style
@@ -97,7 +97,7 @@ def test_overlaid_lineplot(normalized_ts_dict) -> None:
 
     # Plot overlaid time series
     plot_overlaid_lineplot(
-        normalized_ts_dict=normalized_ts_dict,
+        normalized_dict=normalized_dict,
         title_str="Overlaid Line Plot",
         ylabel="$y$",
         xlabel="$x$",
@@ -111,5 +111,5 @@ def test_overlaid_lineplot(normalized_ts_dict) -> None:
     )
 
     # Save the plot
-    save_loc = os.path.join(_SAVE_LOC, "lineplots", "overlaid_ts_plot.png")
+    save_loc = os.path.join(_SAVE_LOC, "lineplots", "overlaid_lineplot.png")
     save_fig(fig, save_loc, dpi=600)

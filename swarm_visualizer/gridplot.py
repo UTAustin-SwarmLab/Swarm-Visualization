@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 # plot grid KPI subfigures
 def plot_grid(
-    normalized_ts_dict: Dict = None,
+    normalized_dict: Dict = None,
     title_str: str = None,
     plot_file: str = None,
     lw: float = 3.0,
@@ -13,7 +13,7 @@ def plot_grid(
 ) -> None:
     """Plot grid of time series.
 
-    :param normalized_ts_dict: dictionary with time series to plot
+    :param normalized_dict: dictionary with time series to plot
     :param title_str: title of the plot
     :param plot_file: file to save the plot
     :param lw: line width
@@ -21,7 +21,7 @@ def plot_grid(
     :return: None
     """
     # Number of rows and columns in the grid
-    nrow = len(normalized_ts_dict.keys())
+    nrow = len(normalized_dict.keys())
 
     # Create figure with subplots
     plt.close("all")
@@ -35,14 +35,14 @@ def plot_grid(
 
     # Plot time series data in each subplot starting from the top
     row = 0
-    for ylabel_name, timeseries_dict in normalized_ts_dict.items():
-        # Plot with x-axis if xvec is specified
+    for ylabel_name, timeseries_dict in normalized_dict.items():
+        # Plot with x-axis if x is specified
         if "x" in timeseries_dict.keys():
             axarr[row].plot(
-                timeseries_dict["x"], timeseries_dict["ts_vector"], lw=lw
+                timeseries_dict["x"], timeseries_dict["y"], lw=lw
             )
         else:
-            axarr[row].plot(timeseries_dict["ts_vector"], lw=lw)
+            axarr[row].plot(timeseries_dict["y"], lw=lw)
 
         # Set y-axis label
         axarr[row].set_ylabel(ylabel_name)

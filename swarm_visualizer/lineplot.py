@@ -6,7 +6,7 @@ from swarm_visualizer.utility.general_utils import set_axis_infos
 
 
 def plot_basic_lineplot(
-    vector=None,
+    y=None,
     title_str: str = None,
     ylabel: str = None,
     lw: float = 3.0,
@@ -16,7 +16,7 @@ def plot_basic_lineplot(
 ) -> None:
     """Basic lineplot.
 
-    :param vector: vector to plot
+    :param y: y data to plot
     :param title_str: title of the plot
     :param ylabel: y-axis label
     :param lw: line width
@@ -26,7 +26,7 @@ def plot_basic_lineplot(
     :return: None.
     """
     # Plot time series
-    ax.plot(vector, lw=lw)
+    ax.plot(y, lw=lw)
 
     set_axis_infos(
         ax, xlabel=xlabel, ylabel=ylabel, ylim=ylim, title_str=title_str
@@ -34,7 +34,7 @@ def plot_basic_lineplot(
 
 
 def plot_overlaid_lineplot(
-    normalized_ts_dict: Dict = None,
+    normalized_dict: Dict = None,
     title_str: str = None,
     ylabel: str = None,
     xlabel: str = "x",
@@ -48,7 +48,7 @@ def plot_overlaid_lineplot(
 ) -> None:
     """Overlaid line plot.
     
-    :param normalized_ts_dict: dictionary with values to plot
+    :param normalized_dict: dictionary with values to plot
     :param title_str: title of the plot
     :param ylabel: y-axis label
     :param xlabel: x-axis label
@@ -62,7 +62,7 @@ def plot_overlaid_lineplot(
     :return: None.
     """
     # dictionary:
-    # key = ts_name, value is a dict, value = {'xvec': , 'ts_vector', 'lw', 'linestyle', 'color'}
+    # key = name, value is a dict, value = {'x': , 'y', 'lw', 'linestyle', 'color'}
 
     # Colors used in plots
     colors = [
@@ -76,36 +76,36 @@ def plot_overlaid_lineplot(
 
     # Plot time series
     i = 0
-    for ts_name, ts_data_dict in normalized_ts_dict.items():
+    for name, data_dict in normalized_dict.items():
         # Order of the line
-        if "zorder" in ts_data_dict.keys():
-            zorder = ts_data_dict["zorder"]
+        if "zorder" in data_dict.keys():
+            zorder = data_dict["zorder"]
         else:
             zorder = None
 
         # Color of the line
-        if "color" in ts_data_dict.keys():
-            color = ts_data_dict["color"]
+        if "color" in data_dict.keys():
+            color = data_dict["color"]
         else:
             color = sns.xkcd_rgb[colors[i]]
 
         # Alpha value of the line
-        if "alpha" in ts_data_dict.keys():
-            alpha = ts_data_dict["alpha"]
+        if "alpha" in data_dict.keys():
+            alpha = data_dict["alpha"]
         else:
             alpha = DEFAULT_ALPHA
 
-        # Plot with x-axis if xvec is specified
-        if "xvec" in ts_data_dict.keys():
+        # Plot with x-axis if x is specified
+        if "x" in data_dict.keys():
             # Plot with markers if marker is specified
-            if "marker" in ts_data_dict.keys():
+            if "marker" in data_dict.keys():
                 ax.plot(
-                    ts_data_dict["xvec"],
-                    ts_data_dict["ts_vector"],
-                    lw=ts_data_dict["lw"],
-                    label=ts_name,
-                    marker=ts_data_dict["marker"],
-                    ls=ts_data_dict["linestyle"],
+                    data_dict["x"],
+                    data_dict["y"],
+                    lw=data_dict["lw"],
+                    label=name,
+                    marker=data_dict["marker"],
+                    ls=data_dict["linestyle"],
                     alpha=alpha,
                     ms=DEFAULT_MARKERSIZE,
                     color=color,
@@ -113,24 +113,24 @@ def plot_overlaid_lineplot(
                 )
             else:
                 ax.plot(
-                    ts_data_dict["xvec"],
-                    ts_data_dict["ts_vector"],
-                    lw=ts_data_dict["lw"],
-                    label=ts_name,
-                    ls=ts_data_dict["linestyle"],
+                    data_dict["x"],
+                    data_dict["y"],
+                    lw=data_dict["lw"],
+                    label=name,
+                    ls=data_dict["linestyle"],
                     alpha=alpha,
                     color=color,
                     zorder=zorder,
                 )
-        # Plot without x-axis if xvec is not specified
+        # Plot without x-axis if x is not specified
         else:
-            if "marker" in ts_data_dict.keys():
+            if "marker" in data_dict.keys():
                 ax.plot(
-                    ts_data_dict["ts_vector"],
-                    lw=ts_data_dict["lw"],
-                    label=ts_name,
-                    marker=ts_data_dict["marker"],
-                    ls=ts_data_dict["linestyle"],
+                    data_dict["y"],
+                    lw=data_dict["lw"],
+                    label=name,
+                    marker=data_dict["marker"],
+                    ls=data_dict["linestyle"],
                     alpha=alpha,
                     ms=DEFAULT_MARKERSIZE,
                     color=color,
@@ -138,10 +138,10 @@ def plot_overlaid_lineplot(
                 )
             else:
                 ax.plot(
-                    ts_data_dict["ts_vector"],
-                    lw=ts_data_dict["lw"],
-                    label=ts_name,
-                    ls=ts_data_dict["linestyle"],
+                    data_dict["y"],
+                    lw=data_dict["lw"],
+                    label=name,
+                    ls=data_dict["linestyle"],
                     alpha=alpha,
                     color=color,
                     zorder=zorder,
