@@ -5,14 +5,14 @@ from swarm_visualizer.utility.general_utils import set_axis_infos
 
 
 def plot_pdf(
-    data=None, xlabel: str = None, title_str: str = None, ax=None
+     ax, data=None, xlabel: str = None, title_str: str = None
 ) -> None:
     """Plot PDF of a data.
 
+    :param ax: axis to plot
     :param data: data to plot
     :param xlabel: x-axis label
     :param title_str: title of the plot
-    :param ax: axis to plot on
     :return: None.
     """
     # Convert data to numpy array
@@ -37,6 +37,7 @@ def plot_pdf(
 
 
 def plot_several_pdf(
+    ax,
     data_list=None,
     xlabel: str = None,
     title_str: str = None,
@@ -44,10 +45,10 @@ def plot_several_pdf(
     ylabel: str = None,
     xlim=None,
     kde: bool = False,
-    ax=None,
 ) -> None:
     """Plot PDF of a data list.
 
+    :param ax: axis to plot on
     :param data_list: data list
     :param xlabel: x-axis label
     :param title_str: title of the plot
@@ -55,7 +56,6 @@ def plot_several_pdf(
     :param ylabel: y-axis label
     :param xlim: x-axis limits
     :param kde: whether to plot kde
-    :param ax: axis to plot on
     :return: None.
     """
     for i, data in enumerate(data_list):

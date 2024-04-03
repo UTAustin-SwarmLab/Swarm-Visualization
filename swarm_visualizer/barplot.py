@@ -3,24 +3,24 @@ import seaborn as sns
 from swarm_visualizer.utility.general_utils import set_axis_infos
 
 def plot_grouped_barplot(
+    ax,
     df=None,
     x_var=None,
     y_var=None,
     ylim=None,
     title_str=None,
     pal=None,
-    ax=None,
     y_label=None,
 ) -> None:
     """Plots a grouped barplot. In this case, there are multiple y-var for each x-var.
 
+    :param ax: axis to plot on
     :param df: dataframe
     :param x_var: x-axis variable
     :param y_var: y-axis variable
     :param ylim: y-axis limits
     :param title_str: title of the plot
     :param pal: palette
-    :param ax: axis to plot on
     :return: None.
     """
     if not pal:
@@ -40,6 +40,7 @@ def plot_grouped_barplot(
     set_axis_infos(ax, ylim=ylim, title_str=title_str)
 
 def plot_sns_grouped_barplot(
+    ax,
     df=None,
     x_var=None,
     y_var=None,
@@ -47,11 +48,11 @@ def plot_sns_grouped_barplot(
     ylim=None,
     title_str=None,
     pal=None,
-    ax=None,
     y_label=None,
 ) -> None:
     """Plots a grouped barplot with sns. hue specifies the group.
 
+    :param ax: axis to plot on
     :param df: dataframe
     :param x_var: x-axis variable
     :param y_var: y-axis variable
@@ -59,7 +60,6 @@ def plot_sns_grouped_barplot(
     :param ylim: y-axis limits
     :param title_str: title of the plot
     :param pal: palette
-    :param ax: axis to plot on
     :return: None.
     """
     if not pal:
@@ -81,24 +81,24 @@ def plot_sns_grouped_barplot(
 
 
 def plot_stacked_barplot(
+    ax,
     df=None,
     x_var=None,
     y_var=None,
     ylim=None,
     title_str=None,
     pal=None,
-    ax=None,
     y_label=None,
 ) -> None:
     """Plots a grouped barplot.
 
+    :param ax: axis to plot on
     :param df: dataframe
     :param x_var: x-axis variable
     :param y_var: y-axis variable
     :param ylim: y-axis limits
     :param title_str: title of the plot
     :param pal: palette
-    :param ax: axis to plot on
     :return: None.
     """
     if not pal:
