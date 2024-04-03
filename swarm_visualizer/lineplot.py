@@ -6,23 +6,23 @@ from swarm_visualizer.utility.general_utils import set_axis_infos
 
 
 def plot_basic_lineplot(
+    ax,
     y=None,
     title_str: str = None,
     ylabel: str = None,
     lw: float = 3.0,
     ylim=None,
     xlabel: str = "x",
-    ax=None,
 ) -> None:
     """Basic lineplot.
 
+    :param ax: axis to plot on
     :param y: y data to plot
     :param title_str: title of the plot
     :param ylabel: y-axis label
     :param lw: line width
     :param ylim: y-axis limits
     :param xlabel: x-axis label
-    :param ax: axis to plot on
     :return: None.
     """
     # Plot time series
@@ -34,6 +34,7 @@ def plot_basic_lineplot(
 
 
 def plot_overlaid_lineplot(
+    ax,
     normalized_dict: Dict = None,
     title_str: str = None,
     ylabel: str = None,
@@ -44,10 +45,10 @@ def plot_overlaid_lineplot(
     legend_present: bool = True,
     DEFAULT_MARKERSIZE: float = 15,
     delete_yticks: bool = False,
-    ax=None,
 ) -> None:
     """Overlaid line plot.
     
+    :param ax: axis to plot on
     :param normalized_dict: dictionary with values to plot
     :param title_str: title of the plot
     :param ylabel: y-axis label
@@ -58,7 +59,6 @@ def plot_overlaid_lineplot(
     :param legend_present: whether to plot the legend
     :param DEFAULT_MARKERSIZE: default marker size
     :param delete_yticks: whether to delete the y-axis ticks
-    :param ax: axis to plot on
     :return: None.
     """
     # dictionary:

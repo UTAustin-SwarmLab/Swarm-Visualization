@@ -5,6 +5,7 @@ from swarm_visualizer.utility.general_utils import set_axis_infos
 
 
 def plot_basic_scatterplot(
+    ax,
     x=None,
     y=None,
     title_str: str = None,
@@ -15,10 +16,10 @@ def plot_basic_scatterplot(
     xlim=None,
     ms: float = 4.0,
     color: str = "b",
-    ax=None,
 ) -> None:
     """Basic scatter plot.
 
+    :param ax: axis to plot
     :param x: x-axis data
     :param y: y-axis data
     :param title_str: title of the plot
@@ -29,9 +30,11 @@ def plot_basic_scatterplot(
     :param xlim: x-axis limits
     :param ms: marker size
     :param color: color of the markers
-    :param ax: axis to plot
     :return: None.
     """
+    if ax is None:
+        fig, ax = plt.subplots()
+
     # Scatter plot
     ax.scatter(x, y, lw=lw, s=ms, color=color)
 
@@ -48,8 +51,10 @@ def plot_basic_scatterplot(
     # Set axis infos
     set_axis_infos(ax, ylim=ylim, title_str=title_str)
 
+    return ax
 
-# joint plot: scatterplot with the CDFs
+
+# joint plot: scatterplot with the PDFs
 def plot_scatter_pdf_plot(
     x=None,
     y=None,

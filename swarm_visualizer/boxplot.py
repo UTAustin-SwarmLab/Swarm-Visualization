@@ -8,6 +8,7 @@ paired boxplot, hue is a name of a column that controls what to pair by
 
 
 def plot_paired_boxplot(
+    ax,
     df=None,
     x_var=None,
     y_var=None,
@@ -16,10 +17,10 @@ def plot_paired_boxplot(
     order_list=None,
     pal=None,
     hue=None,
-    ax=None,
 ) -> None:
     """Plots a paired boxplot.
 
+    :param ax: axis to plot on
     :param df: dataframe
     :param x_var: x-axis variable
     :param y_var: y-axis variable
@@ -28,7 +29,6 @@ def plot_paired_boxplot(
     :param order_list: order of the x-axis variable
     :param pal: palette
     :param hue: hue variable
-    :param ax: axis to plot on
     :return: None.
     """
     # Plots a boxplot
@@ -76,6 +76,7 @@ no pairing
 
 
 def plot_grouped_boxplot(
+    ax,
     df=None,
     x_var=None,
     y_var=None,
@@ -83,10 +84,10 @@ def plot_grouped_boxplot(
     title_str=None,
     order_list=None,
     pal=None,
-    ax=None,
 ) -> None:
     """Plots a grouped boxplot.
 
+    :param ax: axis to plot on
     :param df: dataframe
     :param x_var: x-axis variable
     :param y_var: y-axis variable
@@ -94,7 +95,6 @@ def plot_grouped_boxplot(
     :param title_str: title of the plot
     :param order_list: order of the x-axis variable
     :param pal: palette
-    :param ax: axis to plot on
     :return: None.
     """
     if not pal:

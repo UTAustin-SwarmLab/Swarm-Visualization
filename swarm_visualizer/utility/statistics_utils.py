@@ -3,12 +3,12 @@ from statannotations.Annotator import Annotator
 
 
 def add_wilcoxon_value(
+    ax,
     df=None,
     x_var=None,
     y_var=None,
     hue=None,
     order_list=None,
-    ax=None,
     box_pairs=None,
     test_type=None,
     text_format=None,

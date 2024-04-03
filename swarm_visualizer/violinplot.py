@@ -4,6 +4,7 @@ from swarm_visualizer.utility.general_utils import set_axis_infos
 
 
 def plot_grouped_violinplot(
+    ax,
     df=None,
     x_var=None,
     y_var=None,
@@ -11,10 +12,10 @@ def plot_grouped_violinplot(
     title_str=None,
     order_list=None,
     pal=None,
-    ax=None,
 ) -> None:
     """Plots a grouped violinplot.
 
+    :param ax: axis to plot on
     :param df: dataframe
     :param x_var: x-axis variable
     :param y_var: y-axis variable
@@ -22,7 +23,6 @@ def plot_grouped_violinplot(
     :param title_str: title of the plot
     :param order_list: order of the x-axis variable
     :param pal: palette
-    :param ax: axis to plot on
     :return: None.
     """
     # Plots a violinplot
@@ -48,6 +48,7 @@ def plot_grouped_violinplot(
 
 
 def plot_paired_violinplot(
+    ax,
     df=None,
     x_var=None,
     y_var=None,
@@ -56,10 +57,10 @@ def plot_paired_violinplot(
     order_list=None,
     pal=None,
     hue=None,
-    ax=None,
 ) -> None:
     """Plots a paired boxplot.
 
+    :param ax: axis to plot on
     :param df: dataframe
     :param x_var: x-axis variable
     :param y_var: y-axis variable
@@ -68,7 +69,6 @@ def plot_paired_violinplot(
     :param order_list: order of the x-axis variable
     :param pal: palette
     :param hue: hue variable
-    :param ax: axis to plot on
     :return: None.
     """
     # Plots a boxplot

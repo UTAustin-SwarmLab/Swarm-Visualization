@@ -36,6 +36,7 @@ def test_basic_scatterplot(x_data, y_data) -> None:
 
     # Create a  basic scatter plot
     plot_basic_scatterplot(
+        ax,
         x=x_data,
         y=y_data,
         title_str="Basic Scatter Plot",
@@ -46,7 +47,6 @@ def test_basic_scatterplot(x_data, y_data) -> None:
         xlim=None,
         ms=10.0,
         color="b",
-        ax=ax,
     )
 
     # Save the plot
