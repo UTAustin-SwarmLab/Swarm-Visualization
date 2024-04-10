@@ -11,6 +11,7 @@ def plot_grouped_barplot(
     title_str=None,
     pal=None,
     y_label=None,
+    **kwargs
 ) -> None:
     """Plots a grouped barplot. In this case, there are multiple y-var for each x-var.
 
@@ -24,12 +25,12 @@ def plot_grouped_barplot(
     :return: None.
     """
     if not pal:
-        df.plot(kind="bar", stacked=False, ax=ax, x=x_var, y=y_var)
+        df.plot(kind="bar", stacked=False, ax=ax, x=x_var, y=y_var, **kwargs)
 
     if pal:
         colors = [pal(i) for i in range(len(x_var))]
         df.plot(
-            kind="bar", stacked=False, ax=ax, x=x_var, y=y_var, colors=colors
+            kind="bar", stacked=False, ax=ax, x=x_var, y=y_var, colors=colors, **kwargs
         )
 
     ### set y label
@@ -49,6 +50,7 @@ def plot_sns_grouped_barplot(
     title_str=None,
     pal=None,
     y_label=None,
+    **kwargs
 ) -> None:
     """Plots a grouped barplot with sns. hue specifies the group.
 
@@ -63,12 +65,12 @@ def plot_sns_grouped_barplot(
     :return: None.
     """
     if not pal:
-        sns.barplot(ax=ax, x=x_var, y=y_var, hue=hue, data=df)
+        sns.barplot(ax=ax, x=x_var, y=y_var, hue=hue, data=df, **kwargs)
 
     if pal:
         colors = [pal(i) for i in range(len(x_var))]
         sns.barplot(
-            ax=ax, x=x_var, y=y_var, palette=colors, hue=hue, data=df
+            ax=ax, x=x_var, y=y_var, palette=colors, hue=hue, data=df, **kwargs
         )
 
     ### set y label
@@ -89,6 +91,7 @@ def plot_stacked_barplot(
     title_str=None,
     pal=None,
     y_label=None,
+    **kwargs
 ) -> None:
     """Plots a grouped barplot.
 
@@ -102,12 +105,12 @@ def plot_stacked_barplot(
     :return: None.
     """
     if not pal:
-        df.plot(kind="bar", stacked=True, ax=ax, x=x_var, y=y_var)
+        df.plot(kind="bar", stacked=True, ax=ax, x=x_var, y=y_var, **kwargs)
 
     if pal:
         colors = [pal(i) for i in range(len(x_var))]
         df.plot(
-            kind="bar", stacked=True, ax=ax, x=x_var, y=y_var, colors=colors
+            kind="bar", stacked=True, ax=ax, x=x_var, y=y_var, colors=colors, **kwargs
         )
 
     ### set y label

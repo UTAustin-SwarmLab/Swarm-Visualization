@@ -16,6 +16,7 @@ def plot_basic_scatterplot(
     xlim=None,
     ms: float = 4.0,
     color: str = "b",
+    **kwargs
 ) -> None:
     """Basic scatter plot.
 
@@ -36,7 +37,7 @@ def plot_basic_scatterplot(
         fig, ax = plt.subplots()
 
     # Scatter plot
-    ax.scatter(x, y, lw=lw, s=ms, color=color)
+    ax.scatter(x, y, lw=lw, s=ms, color=color, **kwargs)
 
     # Set labels
     ax.set_xlabel(xlabel)
@@ -63,6 +64,7 @@ def plot_scatter_pdf_plot(
     ylim=None,
     xlabel: str = "time",
     xlim=None,
+    **kwargs
 ):
     """Scatter plot with the PDFs and saves the plot.
     
@@ -80,6 +82,7 @@ def plot_scatter_pdf_plot(
     fig = sns.jointplot(
         x=x,
         y=y,
+        **kwargs
     )
 
     # Set labels

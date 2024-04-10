@@ -10,6 +10,7 @@ def plot_grid(
     plot_file: str = None,
     lw: float = 3.0,
     xlabel: str = None,
+    **kwargs
 ) -> None:
     """Plot grid of time series.
 
@@ -39,10 +40,10 @@ def plot_grid(
         # Plot with x-axis if x is specified
         if "x" in timeseries_dict.keys():
             axarr[row].plot(
-                timeseries_dict["x"], timeseries_dict["y"], lw=lw
+                timeseries_dict["x"], timeseries_dict["y"], lw=lw, **kwargs
             )
         else:
-            axarr[row].plot(timeseries_dict["y"], lw=lw)
+            axarr[row].plot(timeseries_dict["y"], lw=lw, **kwargs)
 
         # Set y-axis label
         axarr[row].set_ylabel(ylabel_name)
