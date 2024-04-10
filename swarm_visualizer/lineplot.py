@@ -13,6 +13,7 @@ def plot_basic_lineplot(
     lw: float = 3.0,
     ylim=None,
     xlabel: str = "x",
+    **kwargs
 ) -> None:
     """Basic lineplot.
 
@@ -29,7 +30,7 @@ def plot_basic_lineplot(
     ax.plot(y, lw=lw)
 
     set_axis_infos(
-        ax, xlabel=xlabel, ylabel=ylabel, ylim=ylim, title_str=title_str
+        ax, xlabel=xlabel, ylabel=ylabel, ylim=ylim, title_str=title_str, **kwargs
     )
 
 
@@ -45,6 +46,7 @@ def plot_overlaid_lineplot(
     legend_present: bool = True,
     DEFAULT_MARKERSIZE: float = 15,
     delete_yticks: bool = False,
+    **kwargs
 ) -> None:
     """Overlaid line plot.
     
@@ -110,6 +112,7 @@ def plot_overlaid_lineplot(
                     ms=DEFAULT_MARKERSIZE,
                     color=color,
                     zorder=zorder,
+                    **kwargs
                 )
             else:
                 ax.plot(
@@ -121,6 +124,7 @@ def plot_overlaid_lineplot(
                     alpha=alpha,
                     color=color,
                     zorder=zorder,
+                    **kwargs
                 )
         # Plot without x-axis if x is not specified
         else:
@@ -135,6 +139,7 @@ def plot_overlaid_lineplot(
                     ms=DEFAULT_MARKERSIZE,
                     color=color,
                     zorder=zorder,
+                    **kwargs
                 )
             else:
                 ax.plot(
@@ -145,6 +150,7 @@ def plot_overlaid_lineplot(
                     alpha=alpha,
                     color=color,
                     zorder=zorder,
+                    **kwargs
                 )
 
         i += 1

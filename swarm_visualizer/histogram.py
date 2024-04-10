@@ -5,7 +5,7 @@ from swarm_visualizer.utility.general_utils import set_axis_infos
 
 
 def plot_pdf(
-     ax, data=None, xlabel: str = None, title_str: str = None
+     ax, data=None, xlabel: str = None, title_str: str = None, **kwargs
 ) -> None:
     """Plot PDF of a data.
 
@@ -30,6 +30,7 @@ def plot_pdf(
         alpha=0.4,
         edgecolor=(1, 1, 1, 0.4),
         ax=ax,
+        **kwargs
     )
 
     # Set axis infos
@@ -45,6 +46,7 @@ def plot_several_pdf(
     ylabel: str = None,
     xlim=None,
     kde: bool = False,
+    **kwargs
 ) -> None:
     """Plot PDF of a data list.
 
@@ -68,6 +70,7 @@ def plot_several_pdf(
             alpha=0.4,
             edgecolor=(1, 1, 1, 0.4),
             ax=ax,
+            **kwargs
         )
         # sns.histplot(data, norm_hist = norm)
         # plt.hold(True)
