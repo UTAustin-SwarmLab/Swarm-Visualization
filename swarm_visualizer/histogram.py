@@ -39,13 +39,15 @@ def plot_pdf(
 
 def plot_several_pdf(
     ax,
-    data_list=None,
+    data_list: list[np.ndarray]=None,
     xlabel: str = None,
     title_str: str = None,
     legend=None,
     ylabel: str = None,
     xlim=None,
     kde: bool = False,
+    bins = "auto",
+    binwidth = None,
     **kwargs
 ) -> None:
     """Plot PDF of a data list.
@@ -60,8 +62,9 @@ def plot_several_pdf(
     :param kde: whether to plot kde
     :return: None.
     """
+    # if binwidth is not None:
+    #     bins = None
     for i, data in enumerate(data_list):
-        # sns.distplot(data, norm_hist = norm, kde=kde)
         sns.histplot(
             data,
             kde=kde,
@@ -70,10 +73,10 @@ def plot_several_pdf(
             alpha=0.4,
             edgecolor=(1, 1, 1, 0.4),
             ax=ax,
+            bins=bins,
+            binwidth=binwidth,
             **kwargs
         )
-        # sns.histplot(data, norm_hist = norm)
-        # plt.hold(True)
 
     # Set axis infos
     set_axis_infos(
