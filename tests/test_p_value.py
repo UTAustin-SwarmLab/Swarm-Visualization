@@ -7,9 +7,9 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from swarm_visualizer.boxplot import plot_grouped_boxplot, plot_paired_boxplot
-from swarm_visualizer.utility.general_utils import save_fig, set_plot_properties
-from swarm_visualizer.utility.statistics_utils import add_wilcoxon_value
+from swarm_visualizer import plot_grouped_boxplot, plot_paired_boxplot
+from swarm_visualizer.utility import save_fig, set_plot_properties
+from swarm_visualizer.utility import add_wilcoxon_value
 
 # Example Plots location
 _X1_DATA = np.arange(0, 5, 0.05) + np.random.normal(0, 0.1, 100)
