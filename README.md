@@ -26,8 +26,8 @@ Please make sure to write unit test for every method that you are developing.
 Here's example import
 
 ```python
-from swarm_visualizer.violinplot import plot_grouped_violinplot
-from swarm_visualizer.boxplot import plot_grouped_boxplot
-from swarm_visualizer.gridplot import plot_grid
+from swarm_visualizer import plot_grouped_violinplot
+from swarm_visualizer import plot_grouped_boxplot
+from swarm_visualizer import plot_grid
 ```
 

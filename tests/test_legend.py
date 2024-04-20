@@ -3,8 +3,8 @@ from __future__ import annotations
 import os
 import pytest
 
-from swarm_visualizer.utility.general_utils import set_plot_properties
-from swarm_visualizer.utility.legendplot_utils import create_seperate_legend
+from swarm_visualizer.utility import set_plot_properties
+from swarm_visualizer.utility import create_seperate_legend
 
 # Example Labels
 _LABELS = ["OA", "PL", "RZ", "OB", "SA", "SSN", "SPC"]
