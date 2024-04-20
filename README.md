@@ -28,6 +28,6 @@ Here's example import
 ```python
 from swarm_visualizer import plot_grouped_violinplot
 from swarm_visualizer import plot_grouped_boxplot
-from swarm_visualizer.gridplot import plot_grid
+from swarm_visualizer import plot_grid
 ```
 
