@@ -1,6 +1,6 @@
 import seaborn as sns
 
-from swarm_visualizer.utility.general_utils import set_axis_infos
+from swarm_visualizer.utility import set_axis_infos
 
 
 def plot_grouped_violinplot(

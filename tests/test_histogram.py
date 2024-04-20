@@ -11,7 +11,7 @@ from swarm_visualizer.histogram import (
     plot_pdf,
     plot_several_pdf,
 )
-from swarm_visualizer.utility.general_utils import save_fig, set_plot_properties
+from swarm_visualizer.utility import save_fig, set_plot_properties
 
 # Example Plots location
 _X1_DATA = np.arange(0, 5, 0.05) + np.random.normal(0, 0.1, 100)

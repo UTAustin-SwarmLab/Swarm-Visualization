@@ -7,11 +7,11 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from swarm_visualizer.violinplot import (
+from swarm_visualizer import (
     plot_grouped_violinplot,
     plot_paired_violinplot,
 )
-from swarm_visualizer.utility.general_utils import save_fig, set_plot_properties
+from swarm_visualizer.utility import save_fig, set_plot_properties
 
 _X1_DATA = np.arange(0, 5, 0.05) + np.random.normal(0, 0.1, 100)
 _X2_DATA = np.arange(0, 10, 0.1) + np.random.normal(0, 0.1, 100)
