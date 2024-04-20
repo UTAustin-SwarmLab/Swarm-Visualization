@@ -15,7 +15,7 @@ from swarm_visualizer.utility import save_fig, set_plot_properties
 
 # Example Plots location
 _X1_DATA = np.arange(0, 5, 0.05) + np.random.normal(0, 0.1, 100)
-_X2_DATA = np.arange(0, 10, 0.1) + np.random.normal(0, 0.1, 100)
+_X2_DATA = np.arange(0, 10, 0.05) + np.random.normal(0, 0.1, 200)
 
 # Concatenate the data
 _X_DATA = [_X1_DATA, _X2_DATA]
@@ -63,7 +63,7 @@ def test_plot_several_pdf(data_list) -> None:
 
     # Plot PDF
     plot_several_pdf(
-        data_list=data_list, xlabel="$x$", title_str="PDF", ax=ax
+        data_list=data_list, xlabel="$x$", title_str="PDF", ax=ax, binwidth=0.25
     )
 
     # Save the plot
