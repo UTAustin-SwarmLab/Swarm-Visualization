@@ -4,3 +4,4 @@ from .boxplot import plot_grouped_boxplot, plot_paired_boxplot
 from .lineplot import plot_basic_lineplot, plot_overlaid_lineplot
 from .violinplot import plot_grouped_violinplot, plot_paired_violinplot
 from .scatterplot import plot_basic_scatterplot, plot_scatter_pdf_plot
+from .gridplot import plot_grid
