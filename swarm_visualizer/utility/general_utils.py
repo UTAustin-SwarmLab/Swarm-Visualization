@@ -54,17 +54,18 @@ def set_plot_properties(
     sns.set_style(style="darkgrid")
 
 
-def save_fig(fig, save_loc: str = None, dpi: int = 600) -> None:
+def save_fig(fig, save_loc: str = None, dpi: int = 600, tight_layout: bool=True) -> None:
     """Save figure.
 
     :param fig: figure
     :param save_loc: location to save the figure
     :param dpi: dpi
+    :param tight_layout: tight layout or not
     :return: None.
     """
+    plt.tight_layout() if tight_layout else None
     # If save location doesn't exist, create it
-    if not os.path.exists(os.path.dirname(save_loc)):
-        os.makedirs(os.path.dirname(save_loc))
+    os.makedirs(os.path.dirname(save_loc), exist_ok=True)
 
     # Save the figure
     fig.savefig(save_loc, dpi=dpi)
