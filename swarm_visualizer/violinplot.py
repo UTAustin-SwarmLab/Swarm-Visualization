@@ -12,7 +12,7 @@ def plot_grouped_violinplot(
     title_str=None,
     order_list=None,
     pal=None,
-    **kwargs
+    **kwargs,
 ) -> None:
     """Plots a grouped violinplot.
 
@@ -29,19 +29,35 @@ def plot_grouped_violinplot(
     # Plots a violinplot
     if not pal:
         if order_list:
-            sns.violinplot(x=x_var, y=y_var, data=df, order=order_list, ax=ax, **kwargs)
+            sns.violinplot(
+                x=x_var, y=y_var, data=df, order=order_list, ax=ax, **kwargs
+            )
         else:
-            sns.violinplot(x=x_var, y=y_var, data=df, order=order_list, ax=ax, **kwargs)
+            sns.violinplot(
+                x=x_var, y=y_var, data=df, order=order_list, ax=ax, **kwargs
+            )
 
     # Plots a violinplot with palette
     if pal:
         if order_list:
             sns.violinplot(
-                x=x_var, y=y_var, data=df, order=order_list, palette=pal, ax=ax, **kwargs
+                x=x_var,
+                y=y_var,
+                data=df,
+                order=order_list,
+                palette=pal,
+                ax=ax,
+                **kwargs,
             )
         else:
             sns.violinplot(
-                x=x_var, y=y_var, data=df, order=order_list, palette=pal, ax=ax, **kwargs
+                x=x_var,
+                y=y_var,
+                data=df,
+                order=order_list,
+                palette=pal,
+                ax=ax,
+                **kwargs,
             )
 
     # Set axis infos
@@ -58,7 +74,7 @@ def plot_paired_violinplot(
     order_list=None,
     pal=None,
     hue=None,
-    **kwargs
+    **kwargs,
 ) -> None:
     """Plots a paired boxplot.
 
@@ -78,11 +94,23 @@ def plot_paired_violinplot(
         # Plots a boxplot with order
         if order_list:
             sns.violinplot(
-                x=x_var, y=y_var, data=df, order=order_list, hue=hue, ax=ax, **kwargs
+                x=x_var,
+                y=y_var,
+                data=df,
+                order=order_list,
+                hue=hue,
+                ax=ax,
+                **kwargs,
             )
         else:
             sns.violinplot(
-                x=x_var, y=y_var, data=df, order=order_list, hue=hue, ax=ax, **kwargs
+                x=x_var,
+                y=y_var,
+                data=df,
+                order=order_list,
+                hue=hue,
+                ax=ax,
+                **kwargs,
             )
 
     # Plots a boxplot with palette
@@ -96,7 +124,7 @@ def plot_paired_violinplot(
                 palette=pal,
                 hue=hue,
                 ax=ax,
-                **kwargs
+                **kwargs,
             )
         else:
             sns.violinplot(
@@ -107,7 +135,7 @@ def plot_paired_violinplot(
                 palette=pal,
                 hue=hue,
                 ax=ax,
-                **kwargs
+                **kwargs,
             )
 
     # Set axis infos

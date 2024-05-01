@@ -10,7 +10,7 @@ def plot_grid(
     plot_file: str = None,
     lw: float = 3.0,
     xlabel: str = None,
-    **kwargs
+    **kwargs,
 ) -> None:
     """Plot grid of time series.
 
