@@ -13,7 +13,7 @@ def set_plot_properties(
     ytick_label_size: float = 14,
     markersize: float = 10,
     usetex: bool = True,
-    autolayout = True,
+    autolayout=True,
 ) -> None:
     """Sets plot properties.
 
@@ -54,7 +54,9 @@ def set_plot_properties(
     sns.set_style(style="darkgrid")
 
 
-def save_fig(fig, save_loc: str = None, dpi: int = 600, tight_layout: bool=True) -> None:
+def save_fig(
+    fig, save_loc: str = None, dpi: int = 600, tight_layout: bool = True
+) -> None:
     """Save figure.
 
     :param fig: figure

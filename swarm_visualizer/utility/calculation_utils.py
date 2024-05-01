@@ -4,7 +4,6 @@ Author: Sandeep Chinchali
 
 """
 
-
 import matplotlib
 import numpy as np
 

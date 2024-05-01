@@ -7,7 +7,11 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from swarm_visualizer import plot_grouped_barplot, plot_stacked_barplot, plot_sns_grouped_barplot
+from swarm_visualizer import (
+    plot_grouped_barplot,
+    plot_stacked_barplot,
+    plot_sns_grouped_barplot,
+)
 
 from swarm_visualizer.utility import save_fig, set_plot_properties
 
@@ -23,15 +27,18 @@ _DATA_FRAME = pd.DataFrame(
 )
 
 _HUE_DATA_FRAME = pd.DataFrame(
-    {"$y_1$": _X1_DATA[:4], 
-     "$y_2$": _X1_DATA[:4] + 0.02, 
-    "$x$": ["x_1", "x_1", "x_2", "x_2"],
-    "group": ["a", "b", "a", "b"]}
+    {
+        "$y_1$": _X1_DATA[:4],
+        "$y_2$": _X1_DATA[:4] + 0.02,
+        "$x$": ["x_1", "x_1", "x_2", "x_2"],
+        "group": ["a", "b", "a", "b"],
+    }
 )
 
 _SAVE_LOC = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "example_plots")
 )
+
 
 @pytest.mark.parametrize(
     ("df", "x_var", "y_var", "y_label"),
@@ -95,6 +102,7 @@ def test_grouped_barplot(df, x_var, y_var, y_label) -> None:
     # Save the plot
     save_loc = os.path.join(_SAVE_LOC, "barplot", "grouped_barplot.png")
     save_fig(fig, save_loc, dpi=600)
+
 
 @pytest.mark.parametrize(
     ("df", "x_var", "y_var", "y_label", "hue"),

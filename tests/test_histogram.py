@@ -33,7 +33,7 @@ _SAVE_LOC = os.path.abspath(
 def test_plot_pdf(data) -> None:
     """Tests plot pdf.
 
-    :param data: data 
+    :param data: data
     :return: None
     """
     # Sets plot style
@@ -53,7 +53,7 @@ def test_plot_pdf(data) -> None:
 def test_plot_several_pdf(data_list) -> None:
     """Tests plotting several pdf in the same plot.
 
-    :param data_list: list of data 
+    :param data_list: list of data
     :return: None
     """
     # Sets plot style

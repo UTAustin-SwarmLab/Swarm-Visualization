@@ -16,7 +16,7 @@ def plot_basic_scatterplot(
     xlim=None,
     ms: float = 4.0,
     color: str = "b",
-    **kwargs
+    **kwargs,
 ) -> None:
     """Basic scatter plot.
 
@@ -64,10 +64,10 @@ def plot_scatter_pdf_plot(
     ylim=None,
     xlabel: str = "time",
     xlim=None,
-    **kwargs
+    **kwargs,
 ):
     """Scatter plot with the PDFs and saves the plot.
-    
+
     :param x: x-axis data
     :param y: y-axis data
     :param title_str: title of the plot
@@ -79,11 +79,7 @@ def plot_scatter_pdf_plot(
     :return: None.
     """
     # Joint plot
-    fig = sns.jointplot(
-        x=x,
-        y=y,
-        **kwargs
-    )
+    fig = sns.jointplot(x=x, y=y, **kwargs)
 
     # Set labels
     fig.set_axis_labels(xlabel, ylabel)

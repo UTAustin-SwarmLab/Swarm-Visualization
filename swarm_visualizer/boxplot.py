@@ -17,7 +17,7 @@ def plot_paired_boxplot(
     order_list=None,
     pal=None,
     hue=None,
-    **kwargs
+    **kwargs,
 ) -> None:
     """Plots a paired boxplot.
 
@@ -37,11 +37,23 @@ def plot_paired_boxplot(
         # Plots a boxplot with order
         if order_list:
             sns.boxplot(
-                x=x_var, y=y_var, data=df, order=order_list, hue=hue, ax=ax, **kwargs
+                x=x_var,
+                y=y_var,
+                data=df,
+                order=order_list,
+                hue=hue,
+                ax=ax,
+                **kwargs,
             )
         else:
             sns.boxplot(
-                x=x_var, y=y_var, data=df, order=order_list, hue=hue, ax=ax, **kwargs
+                x=x_var,
+                y=y_var,
+                data=df,
+                order=order_list,
+                hue=hue,
+                ax=ax,
+                **kwargs,
             )
 
     # Plots a boxplot with palette
@@ -55,7 +67,7 @@ def plot_paired_boxplot(
                 palette=pal,
                 hue=hue,
                 ax=ax,
-                **kwargs
+                **kwargs,
             )
         else:
             sns.boxplot(
@@ -66,7 +78,7 @@ def plot_paired_boxplot(
                 palette=pal,
                 hue=hue,
                 ax=ax,
-                **kwargs
+                **kwargs,
             )
 
     # Set axis infos
@@ -87,7 +99,7 @@ def plot_grouped_boxplot(
     title_str=None,
     order_list=None,
     pal=None,
-    **kwargs
+    **kwargs,
 ) -> None:
     """Plots a grouped boxplot.
 
@@ -103,18 +115,34 @@ def plot_grouped_boxplot(
     """
     if not pal:
         if order_list:
-            sns.boxplot(x=x_var, y=y_var, data=df, order=order_list, ax=ax, **kwargs)
+            sns.boxplot(
+                x=x_var, y=y_var, data=df, order=order_list, ax=ax, **kwargs
+            )
         else:
-            sns.boxplot(x=x_var, y=y_var, data=df, order=order_list, ax=ax, **kwargs)
+            sns.boxplot(
+                x=x_var, y=y_var, data=df, order=order_list, ax=ax, **kwargs
+            )
 
     if pal:
         if order_list:
             sns.boxplot(
-                x=x_var, y=y_var, data=df, order=order_list, palette=pal, ax=ax, **kwargs
+                x=x_var,
+                y=y_var,
+                data=df,
+                order=order_list,
+                palette=pal,
+                ax=ax,
+                **kwargs,
             )
         else:
             sns.boxplot(
-                x=x_var, y=y_var, data=df, order=order_list, palette=pal, ax=ax, **kwargs
+                x=x_var,
+                y=y_var,
+                data=df,
+                order=order_list,
+                palette=pal,
+                ax=ax,
+                **kwargs,
             )
 
     # Set axis infos
