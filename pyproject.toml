@@ -19,8 +19,9 @@ classifiers = [
 dependencies = [
     "numpy",
     "pandas",
-    "seaborn",
-    "statannotations",
+    "seaborn"="0.11.2",
+    "matplotlib"="3.8.4"
+    "statannotations=0.6.0",
     "scipy"
 ]
 
