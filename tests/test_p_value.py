@@ -28,9 +28,7 @@ _GROUPS = np.concatenate(
     ]
 )
 
-_DATA_FRAME = pd.DataFrame(
-    {"$y$": _X_DATA, "$x$": _X_LABEL, "hue": _GROUPS}
-)
+_DATA_FRAME = pd.DataFrame({"$y$": _X_DATA, "$x$": _X_LABEL, "hue": _GROUPS})
 _SAVE_LOC = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "example_plots")
 )

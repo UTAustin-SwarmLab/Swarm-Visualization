@@ -2,6 +2,7 @@ import seaborn as sns
 
 from swarm_visualizer.utility import set_axis_infos
 
+
 def plot_grouped_barplot(
     ax,
     df=None,
@@ -11,7 +12,7 @@ def plot_grouped_barplot(
     title_str=None,
     pal=None,
     y_label=None,
-    **kwargs
+    **kwargs,
 ) -> None:
     """Plots a grouped barplot. In this case, there are multiple y-var for each x-var.
 
@@ -30,7 +31,13 @@ def plot_grouped_barplot(
     if pal:
         colors = [pal(i) for i in range(len(x_var))]
         df.plot(
-            kind="bar", stacked=False, ax=ax, x=x_var, y=y_var, colors=colors, **kwargs
+            kind="bar",
+            stacked=False,
+            ax=ax,
+            x=x_var,
+            y=y_var,
+            colors=colors,
+            **kwargs,
         )
 
     ### set y label
@@ -39,6 +46,7 @@ def plot_grouped_barplot(
 
     # Set axis infos
     set_axis_infos(ax, ylim=ylim, title_str=title_str)
+
 
 def plot_sns_grouped_barplot(
     ax,
@@ -50,7 +58,7 @@ def plot_sns_grouped_barplot(
     title_str=None,
     pal=None,
     y_label=None,
-    **kwargs
+    **kwargs,
 ) -> None:
     """Plots a grouped barplot with sns. hue specifies the group.
 
@@ -81,7 +89,6 @@ def plot_sns_grouped_barplot(
     set_axis_infos(ax, ylim=ylim, title_str=title_str)
 
 
-
 def plot_stacked_barplot(
     ax,
     df=None,
@@ -91,7 +98,7 @@ def plot_stacked_barplot(
     title_str=None,
     pal=None,
     y_label=None,
-    **kwargs
+    **kwargs,
 ) -> None:
     """Plots a grouped barplot.
 
@@ -110,7 +117,13 @@ def plot_stacked_barplot(
     if pal:
         colors = [pal(i) for i in range(len(x_var))]
         df.plot(
-            kind="bar", stacked=True, ax=ax, x=x_var, y=y_var, colors=colors, **kwargs
+            kind="bar",
+            stacked=True,
+            ax=ax,
+            x=x_var,
+            y=y_var,
+            colors=colors,
+            **kwargs,
         )
 
     ### set y label
