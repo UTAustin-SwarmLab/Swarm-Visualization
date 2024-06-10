@@ -149,7 +149,7 @@ def create_colorbar(ax, all_labels, title=None, visible_labels=None, colors=None
         norm = mpl.colors.BoundaryNorm(bounds, cmap.N)
         sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
         sm.set_array([])
-        cbar = plt.colorbar(sm, cax=ax, ticks=np.arange(len(all_labels)))
+        cbar = plt.colorbar(sm, cax=ax, ticks=np.arange(len(all_labels)), orientation=orientation)
         
         if visible_labels:
 
