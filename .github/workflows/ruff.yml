@@ -9,11 +9,12 @@ jobs:
     - uses: actions/setup-python@v4
       with:
         python-version: "3.9"
+    - name: Install Ruff
+      run: pip install ruff
     - name: Run Ruff with auto-fix
-      uses: chartboost/ruff-action@v1
-      with:
-        args: --fix  # Automatically apply safe fixes
-    - uses: stefanzweifel/git-auto-commit-action@v4
+      run: ruff check . --fix  # Use `ruff check` with the `--fix` argument to auto-fix
+    - name: Commit changes if there are any
+      uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: 'style fixes by ruff'
-        file_pattern: '*.py'  # Ensure only Python files are committed
+        file_pattern: '*.py'
