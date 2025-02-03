@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib.pylab as pylab
 import matplotlib as mpl
-from matplotlib.cm import get_cmap
 import numpy as np
 
 from typing import List, Dict
@@ -175,7 +174,7 @@ def create_colorbar(
             cbar.set_ticks(ticks=np.arange(len(all_labels)), labels=all_labels)
 
     else:
-        cmap = get_cmap(palette)
+        cmap = mpl.colormaps.get_cmap(palette)
         norm = plt.Normalize(min(all_labels), max(all_labels))
         cbar = mpl.colorbar.ColorbarBase(
             ax, cmap=cmap, norm=norm, orientation=orientation
